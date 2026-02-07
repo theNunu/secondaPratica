@@ -13,7 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/tercero.css">
+    <link rel="stylesheet" href="../css/uno.css">
     <script src="script.js"></script>
 
 </head>
@@ -52,10 +52,10 @@
         Texto
     </div>
     <br>
-    <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
+    <!-- <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
         style="width: 100px; height: 100px;">
         <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
-    </div>
+    </div> -->
     <br>
 
     <button onclick="cambiarBoton()"> todo correcto</button>
@@ -70,8 +70,48 @@
     <button onclick="cambiarBotonGenerico('bg-dark', 'fa-skull', 'text-white')"> icono de calabera</button>
     <!-- <button onclick="cambiarBotonGenerico"> moriremos todos</button> -->
 
+    <div class="mi-contenedor">
+        <h2>Título dentro del contenedor</h2>
+        <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 100px; height: 100px;">
+            <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
+
+            
+        </div>
+
+          <button onclick="cambiarBotonGenerico('bg-info', 'fa-house', 'text-success')"> icono de casa</button>
+    <button onclick="cambiarBotonGenerico('bg-dark', 'fa-skull', 'text-white')"> icono de calabera</button>
+        <p>Este es un párrafo de ejemplo.</p>
+    </div>
 
     <script>
+
+        function cambiarBotonGenerico(nuevoColor, nuevoIcono, colorIcono) {
+            const boton = document.getElementById('formaBoton');
+            console.log('contenido de boton:', boton)
+            console.log('cambiando por:', nuevoColor, nuevoIcono, colorIcono)
+            const icono = document.getElementById('iconoAdvertencia');
+
+            // 1. Quitamos TODOS los colores posibles de las variantes
+            // classList.remove permite pasar varios nombres separados por comas
+            boton.classList.remove('bg-primary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-secondary', 'bg-dark');
+
+            // 2. Agregamos el color que queremos ahora
+            boton.classList.add(nuevoColor);
+
+            // 3. Para el icono hacemos lo mismo: 
+            // Quitamos los que NO son fijos (los nombres de los iconos)
+            icono.classList.remove('fa-circle-radiation', 'fa-circle-check', 'fa-skull', 'fa-house');
+
+            // 4. Agregamos el nuevo icono
+            icono.classList.add(nuevoIcono);
+
+            // 3. CAMBIO DE COLOR DEL ICONO
+            // Primero quitamos clases de color previas si las hay
+            icono.classList.remove('text-white', 'text-dark', 'text-warning');
+            // Luego agregamos la nueva
+            icono.classList.add(colorIcono);
+        }
 
         function cambiarBoton() {
             const boton = document.getElementById('formaBoton');
@@ -102,32 +142,7 @@
 
         }
 
-        function cambiarBotonGenerico(nuevoColor, nuevoIcono, colorIcono) {
-            const boton = document.getElementById('formaBoton');
-            console.log('contenido de boton:', boton)
-            console.log('cambiando por:' , nuevoColor, nuevoIcono, colorIcono)
-            const icono = document.getElementById('iconoAdvertencia');
 
-            // 1. Quitamos TODOS los colores posibles de las variantes
-            // classList.remove permite pasar varios nombres separados por comas
-            boton.classList.remove('bg-primary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-secondary', 'bg-dark');
-
-            // 2. Agregamos el color que queremos ahora
-            boton.classList.add(nuevoColor);
-
-            // 3. Para el icono hacemos lo mismo: 
-            // Quitamos los que NO son fijos (los nombres de los iconos)
-            icono.classList.remove('fa-circle-radiation', 'fa-circle-check', 'fa-skull', 'fa-house');
-
-            // 4. Agregamos el nuevo icono
-            icono.classList.add(nuevoIcono);
-
-            // 3. CAMBIO DE COLOR DEL ICONO
-            // Primero quitamos clases de color previas si las hay
-            icono.classList.remove('text-white', 'text-dark', 'text-warning');
-            // Luego agregamos la nueva
-            icono.classList.add(colorIcono);
-        }
 
 
     </script>

@@ -1,0 +1,9 @@
+.mi-contenedor {
+  width: 80%;                /* Ancho relativo */
+  max-width: 1000px;         /* Ancho máximo para pantallas grandes */
+  margin: 0 auto;            /* Centra el contenedor horizontalmente */
+  padding: 20px;             /* Espacio interno */
+  background-color: #f4f4f4; /* Color de fondo */
+  border: 1px solid #ccc;    /* Borde opcional */
+  border-radius: 8px;        /* Bordes redondeados */
+}
