@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/cuatro.css">
+    <script src="script.js"></script>
+
+</head>
+<div class="foto-perfil">
+    <img src="../images/jake.jpg" alt="Perfil">
+
+</div>
+
+<p>Este es el texto que queremos separar de la foto.</p>
+
+<div class="contenedor-padre">
+    <span class="etiqueta-oferta">OFERTA</span>
+    <img src="../images/jake.jpg" alt="Producto">
+    <h3>Zapatillas Pro</h3>
+    <button onclick="saludar()">Comprar ahora</button>
+</div>
+
+<button class="btn-ayuda" onclick="ayuda()">¿Necesitas ayuda?</button>
+
+<script>
+    // Definimos las funciones (las acciones que ocurrirán)
+
+    function saludar() {
+        alert("¡Producto añadido al carrito! 🛒");
+    }
+
+    function ayuda() {
+        // Aquí cambiamos el texto de algo en la pantalla usando JS
+        console.log("El usuario pidió ayuda");
+        alert("Un asesor se conectará contigo pronto. 🎧");
+    }
+</script>

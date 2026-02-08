@@ -17,3 +17,120 @@
     <script src="script.js"></script>
 
 </head>
+
+<body>
+
+    <div class="mi-contenedorReligion ">
+        <h3 id="titulo" class="text-center">titulo de davertencia</h3>
+        <!-- <h2>Título dentro del contenedor</h2> -->
+        <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
+            style="width: 100px; height: 100px;">
+            <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
+        </div>
+
+        <div id="fondoDescripcion" class="bg-warning p-2 mt-2 text-center">
+            <p id="descripcion" class="text-dark">Este es un párrafo de avertencia.</p>
+        </div>
+        <br>
+        <button id="boton" class="miBoton">
+            presiona el boton
+        </button>
+        
+        <br>
+        <button onclick="cambiarBotonGenerico(varianteCasa)">
+            icono de casa</button>
+        <button onclick="cambiarBotonGenerico(variantePeligro)">
+            icono de calabera</button>
+
+        <button onclick="cambiarBotonGenerico(varianteIslam)">
+            Islam</button>
+        <button onclick="cambiarBotonGenerico(varianteCristiana)">
+            Cristianismo</button>
+
+        <button onclick="cambiarBotonGenerico(varianteJudia)">
+            Judaismo</button>
+    </div>
+
+    <script>
+        const variantePeligro = {
+            colorFondo: 'bg-dark',
+            icono: 'fa-skull',
+            colorIcono: 'text-white',
+            mensaje: '¡Moriremos todos!',
+            titulo: 'Peligro Crítico'
+        };
+
+        const varianteCasa = {
+            colorFondo: 'bg-info',
+            icono: 'fa-house',
+            colorIcono: 'text-success',
+            mensaje: 'Mensjae de casa',
+            titulo: 'Titulo de casa'
+        };
+
+        const varianteIslam = {
+            colorFondo: 'bg-info',
+            icono: 'fa-book-quran',
+            colorIcono: 'text-success',
+            mensaje: 'Islam se refiere a la religión monoteísta practicada por los musulmanes. Su dios es Alá, su profeta Mahoma y el Corán es su libro sagradoLos seguidores de esta religión practican durante un mes al año el Ramadán, que consiste en un ayuno durante las horas del día. Es una religión practicada por millones de personas en todo el mundo.',
+            titulo: 'Islam'
+        };
+
+        const varianteCristiana = {
+            colorFondo: 'bg-info',
+            icono: 'fa-book-bible',
+            colorIcono: 'text-success',
+            mensaje: 'El cristianismo toma su nombre de Jesucristo y se refiere a aquellos que creen que Jesús es el único Hijo de Dios, el ‘Cristo’ o Ungido, otra palabra de la Biblia es Mesías, el Salvador ungido del mundo de Dios.',
+            titulo: 'Cristianismo'
+        };
+
+        const varianteJudia = {
+            colorFondo: 'bg-info',
+            icono: 'fa-book-tanakh',
+            colorIcono: 'text-success',
+            mensaje: 'El judaísmo es la antigua religión monoteísta del pueblo judío, basada en la creencia en un único Dios que hizo un pacto con Abraham y reveló Su ley (la Torá) a Moisés, constituyendo no solo una fe, sino también una cultura y una nación, con textos sagrados como la Torá y el Talmud, y prácticas como el Shabat y las leyes dietéticas (kosher).',
+            titulo: 'Judaismo'
+        };
+        // <i class="fa-solid fa-book-tanakh"></i>
+
+        // <i class="fa-solid fa-book-bible"></i>
+    </script>
+
+    <script>
+
+        function cambiarBotonGenerico(variante) {
+            const boton = document.getElementById('formaBoton');
+            const icono = document.getElementById('iconoAdvertencia');
+            const description = document.getElementById('descripcion');
+            const title = document.getElementById('titulo');
+
+            description.innerText = variante.mensaje;
+
+            descripcion.classList.remove('text-dark', 'text-success', 'text-white');
+            description.classList.add(variante.colorIcono);
+
+            title.innerText = variante.titulo;
+
+            // 1. Quitamos TODOS los colores posibles de las variantes
+            // classList.remove permite pasar varios nombres separados por comas
+            boton.classList.remove('bg-primary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-secondary', 'bg-dark');
+
+            // 2. Agregamos el color que queremos ahora
+            boton.classList.add(variante.colorFondo);
+
+            // 3. Para el icono hacemos lo mismo: 
+            // Quitamos los que NO son fijos (los nombres de los iconos)
+            icono.classList.remove('fa-circle-radiation', 'fa-circle-check', 'fa-skull', 'fa-house');
+
+            // 4. Agregamos el nuevo icono
+            icono.classList.add(variante.icono);
+
+            // 3. CAMBIO DE COLOR DEL ICONO
+            // Primero quitamos clases de color previas si las hay
+            icono.classList.remove('text-white', 'text-dark', 'text-warning');
+            // Luego agregamos la nueva
+            icono.classList.add(variante.colorIcono);
+        }
+
+    </script>
+</body>

@@ -21,26 +21,39 @@
 <body>
 
     <div class="mi-contenedor">
-        <h2>Título dentro del contenedor</h2>
+        <h3 id="titulo">titulo de davertencia</h3>
+        <!-- <h2>Título dentro del contenedor</h2> -->
         <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
             style="width: 100px; height: 100px;">
             <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
         </div>
 
-        <p>Este es un párrafo de avertencia.</p>
+        <div id ="fondoDescripcion" class="bg-warning p-2 mt-2">
+            <p id="descripcion" class="text-dark">Este es un párrafo de avertencia.</p>
 
-        <button onclick="cambiarBotonGenerico('bg-info', 'fa-house', 'text-success')"> icono de casa</button>
-        <button onclick="cambiarBotonGenerico('bg-dark', 'fa-skull', 'text-white')"> icono de calabera</button>
+        </div>
+
+        <button onclick="cambiarBotonGenerico('bg-info', 'fa-house', 'text-success', 'mensaje de casa', 'titulo de casa')"> icono de casa</button>
+        <button onclick="cambiarBotonGenerico('bg-dark', 'fa-skull', 'text-white', 'mensaje de calabera', 'titulo de calabera')"> icono de calabera</button>
 
     </div>
 
     <script>
 
-        function cambiarBotonGenerico(nuevoColor, nuevoIcono, colorIcono) {
+        function cambiarBotonGenerico(nuevoColor, nuevoIcono, colorIcono,mensaje, titulo) {
             const boton = document.getElementById('formaBoton');
             console.log('contenido de boton:', boton)
             console.log('cambiando por:', nuevoColor, nuevoIcono, colorIcono)
             const icono = document.getElementById('iconoAdvertencia');
+            const description = document.getElementById('descripcion');
+            const title = document.getElementById('titulo');
+
+            description.innerText = mensaje;
+
+            descripcion.classList.remove('text-dark', 'text-success', 'text-white');
+            description.classList.add(colorIcono);
+
+            title.innerText = titulo;
 
             // 1. Quitamos TODOS los colores posibles de las variantes
             // classList.remove permite pasar varios nombres separados por comas

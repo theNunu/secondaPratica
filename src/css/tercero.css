@@ -1,0 +1,18 @@
+.mi-contenedorReligion {
+  width: 30%;                /* Ancho relativo */
+  max-width: 1000px;         /* Ancho máximo para pantallas grandes */
+  margin: 0 auto;            /* Centra el contenedor horizontalmente */
+  padding: 20px;             /* Espacio interno */
+  background-color: #f4f4f4; /* Color de fondo */
+  border: 1px solid #ccc;    /* Borde opcional */
+  border-radius: 8px;        /* Bordes redondeados */
+  margin-top: 250px;
+}
+
+.miBoton {
+    background-color: rgb(138, 211, 211);
+    padding: 10px 20px;
+    text-align: center;
+    color: #ffffff;
+    border-radius : 15px;
+    }

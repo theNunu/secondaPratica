@@ -1,0 +1,35 @@
+/* CSS: El diseño */
+.foto-perfil {
+  background-color: rgb(226, 40, 40); /* Color del marco */
+  padding: 35px;           /* Grosor del marco (Espacio Interno) */
+  border: 4px solid rgb(14, 53, 229);  /* Una línea fina para ver dónde termina la caja */
+  margin-bottom: 20px;     /* Separación con el texto (Espacio Externo) */
+  display: inline-block;   /* Para que la caja se ajuste al tamaño de la foto */
+}
+
+/* CSS: Aplicando las posiciones */
+
+.contenedor-padre {
+  position: relative; /* Es el ANCLA. Los hijos absolutos se guían por esta caja */
+  width: 230px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.etiqueta-oferta {
+  position: absolute; /* Es el REBELDE. Se mueve libremente dentro del padre */
+  top: 10px;          /* A 10px del borde superior del padre */
+  right: 10px;        /* A 10px del borde derecho del padre */
+  background: red;
+  color: white;
+  padding: 5px;
+}
+
+.btn-ayuda {
+  position: fixed;   /* El PEGADO. Se pega a la ventana del navegador, no al diseño */
+  bottom: 20px;      /* Siempre a 20px del final de la pantalla */
+  right: 20px;       /* Siempre a 20px de la derecha */
+  padding: 10px 20px;
+  background: green;
+  color: white;
+}
