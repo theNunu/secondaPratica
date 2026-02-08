@@ -1,0 +1,183 @@
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/modal.css">
+    <script src="script.js"></script>
+
+</head>
+
+
+
+<body>
+    <h1 class="text-center">nos encontramos en los modales</h1>
+    <div class="p-5">
+        <!-- <button class="btn btn-success" onclick="levantarModal('success_store')">Ver exito</button> -->
+        <button class="btn btn-warning" onclick="abrirModal()">Ver Advertencia</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(variantePeligro)">Ver Peligro</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCasa)">Ver Casa</button>
+
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteIslam)">islam</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
+        <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
+        <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
+        <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
+
+
+        <div id="miOverlay" class="overlay" onclick="cerrarModal()">
+            <div class="modal-contenido" onclick="event.stopPropagation()">
+                <span class="boton-cerrar" onclick="cerrarModal()">&times;</span>
+                <div class="boton-cerrar bg-warning rounded-circle align-items-center justify-content-center"
+                    onclick="cerrarModal()">
+                    <i class="fa-solid fa-xmark fa-1x"></i>
+                </div>
+
+                <div class="icon-circle d-flex align-items-center justify-content-center">
+                    <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-2x"></i>
+                </div>
+                <h3 id="titulo" class="text-center">titulo de davertencia</h3>
+                <!-- <h2>Título dentro del contenedor</h2> -->
+                <!-- <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
+                    style="width: 100px; height: 100px;">
+                    <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
+                </div> -->
+
+                <div id="fondoDescripcion" class="bg-warning p-2 mt-2 text-center">
+                    <p id="descripcion" class="text-dark">Este es un párrafo de avertencia.</p>
+                </div>
+                <br>
+                <button id="boton" class="miBoton">
+                    presiona el boton
+                </button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    // El resto de tu lógica para el modal manual
+    const modal = document.getElementById("miOverlay");
+
+    function abrirModal() {
+        modal.style.display = "block";
+    }
+
+    function cerrarModal() {
+        modal.style.display = "none";
+    }
+
+</script>
+
+<script>
+    const variantePeligro = {
+        colorFondo: 'bg-dark',
+        icono: 'fa-skull',
+        colorIcono: 'text-white',
+        mensaje: '¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos!¡Moriremos todos!',
+        titulo: 'Peligro Crítico'
+    };
+
+    const varianteCasa = {
+        colorFondo: 'bg-info',
+        icono: 'fa-house',
+        colorIcono: 'text-success',
+        mensaje: 'Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa',
+        titulo: 'Titulo de casa'
+    };
+
+    const varianteIslam = {
+        colorFondo: 'bg-info',
+        icono: 'fa-book-quran',
+        colorIcono: 'text-success',
+        mensaje: 'Islam se refiere a la religión monoteísta practicada por durante un mes al año el Ramadán, que consiste en un ayuno durante las horas del día. Es una religión practicada por millones de personas en todo el mundo.',
+        titulo: 'Islam'
+    };
+
+    const varianteCristiana = {
+        colorFondo: 'bg-info',
+        icono: 'fa-book-bible',
+        colorIcono: 'text-success',
+        mensaje: 'El cristianismo toma su nombre de Jesucristo y se refiere a aquellos que creen que Jesús es el único Hijo de Dios, el ‘Cristo’ o Ungido, otra palabra de la Biblia es Mesías, el Salvador ungido del mundo de Dios.',
+        titulo: 'Cristianismo'
+    };
+
+    const varianteJudia = {
+        colorFondo: 'bg-info',
+        icono: 'fa-book-tanakh',
+        colorIcono: 'text-success',
+        mensaje: 'El judaísmo es la antigua religión monoteísta del pueblo judío, basada en la creencia en un único Dios que hizo un pacto con Abraham y reveló Su ley (la Torá) a Moisés, constituyendo no solo una fe, sino también una cultura y una nación, con textos sagrados como la Torá y el Talmud, y prácticas como el Shabat y las leyes dietéticas (kosher).',
+        titulo: 'Judaismo'
+    };
+    // <i class="fa-solid fa-book-tanakh"></i>
+
+    // <i class="fa-solid fa-book-bible"></i>
+</script>
+
+<script>
+
+    function cambiarBotonGenerico(variante) {
+
+        const modal = document.getElementById("miOverlay");
+
+        modal.style.display = "block";
+
+        const boton = document.getElementById('formaBoton');
+        const icono = document.getElementById('iconoAdvertencia');
+        console.log(icono, variante.icono);
+        const description = document.getElementById('descripcion');
+        const title = document.getElementById('titulo');
+    
+        // --- 3. LIMPIAR Y CAMBIAR ICONO (fa-*) ---
+    // IMPORTANTE: Protegemos 'fa-solid' y 'fa-2x'
+    Array.from(icono.classList).forEach(cls => {
+        if (cls.startsWith('fa-') && cls !== 'fa-solid' && !cls.includes('2x')) {
+            icono.classList.remove(cls);
+        }
+    });
+
+    icono.classList.add(variante.icono);
+        // description.innerText = variante.mensaje;
+
+        // descripcion.classList.remove('text-dark', 'text-success', 'text-white');
+        // description.classList.add(variante.colorIcono);
+
+        // title.innerText = variante.titulo;
+
+        // // 1. Quitamos TODOS los colores posibles de las variantes
+        // // classList.remove permite pasar varios nombres separados por comas
+        // boton.classList.remove('bg-primary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-secondary', 'bg-dark');
+
+        // // 2. Agregamos el color que queremos ahora
+        // boton.classList.add(variante.colorFondo);
+
+        // 3. Para el icono hacemos lo mismo: 
+        // Quitamos los que NO son fijos (los nombres de los iconos)
+        // icono.classList.remove('fa-circle-radiation', 'fa-circle-check', 'fa-skull', 'fa-house');
+        //     icono.classList.add(variante.icono);
+
+        // 4. Agregamos el nuevo icono
+        // icono.classList.add(variante.icono);
+
+        // 3. CAMBIO DE COLOR DEL ICONO
+        // Primero quitamos clases de color previas si las hay
+        // icono.classList.remove('text-white', 'text-dark', 'text-warning');
+        // // Luego agregamos la nueva
+        // icono.classList.add(variante.colorIcono);
+        // --- 3. LIMPIAR Y CAMBIAR ICONO (fa-*) ---
+
+
+    // Agregamos el nuevo icono (solo el nombre de la figura)
+
+    }
+
+</script>
