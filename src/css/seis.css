@@ -1,0 +1,60 @@
+/* El fondo oscuro que cubre todo */
+.overlay {
+  display: none;        /* Empieza oculto */
+  position: fixed;      /* Se queda pegado a la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;          /* Cubre todo el ancho */
+  height: 100%;         /* Cubre todo el alto */
+  background-color: rgba(0, 0, 0, 0.7); /* Negro con 70% de transparencia */
+  z-index: 1000;        /* Asegura que esté por encima de todo */
+}
+
+/* La caja blanca en el centro */
+.modal-contenido {
+  position: absolute;   /* Se posiciona respecto al overlay */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* El truco maestro para centrar perfecto */
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.padre-vertical {
+  display: flex;
+  flex-direction: column; /* Los pone uno debajo del otro */
+  align-items: center;    /* Los centra horizontalmente */
+  gap: 5px;             /* Espacio vertical entre cada uno */
+  
+  padding: 20px;
+  border: 2px solid #333;
+    width: 450px;
+    position: relative; /*para que el boton de x hijo se vallam a la derecha*/
+}
+
+/* El botón de cerrar (X) */
+.boton-cerrar {
+  position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 5px;
+  /* top: 10px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #888; */
+}
+
+.hijo {
+  /* width: 200px;
+  padding: 10px;
+  background-color: #3498db;
+  color: white; */
+  text-align: center;
+  /* border-radius: 5px; */
+}

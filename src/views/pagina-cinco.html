@@ -29,7 +29,12 @@
     <div class="p-5">
         <!-- <button class="btn btn-success" onclick="levantarModal('success_store')">Ver exito</button> -->
         <button class="btn btn-warning" onclick="abrirModal()">Ver Advertencia</button>
-         <button class="btn btn-warning" onclick="cambiarBotonGenerico(variantePeligro)">Ver Advertencia</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(variantePeligro)">Ver Peligro</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCasa)">Ver Casa</button>
+
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteIslam)">islam</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
         <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
         <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
         <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
@@ -120,6 +125,11 @@
 <script>
 
     function cambiarBotonGenerico(variante) {
+
+        const modal = document.getElementById("miOverlay");
+
+        modal.style.display = "block";
+
         const boton = document.getElementById('formaBoton');
         const icono = document.getElementById('iconoAdvertencia');
         const description = document.getElementById('descripcion');
