@@ -28,8 +28,17 @@
     <button onclick="saludar()">Comprar ahora</button>
 </div>
 
-<button class="btn-ayuda" onclick="ayuda()">¿Necesitas ayuda?</button>
+<!-- <button class="btn-ayuda" onclick="ayuda()">¿Necesitas ayuda?</button> -->
+<button class="btn-ayuda" onclick="abrirModal()">¿Necesitas ayuda?</button>
 
+<div id="miOverlay" class="overlay" onclick="cerrarModal()">
+    <div class="modal-contenido" onclick="event.stopPropagation()">
+        <span class="boton-cerrar" onclick="cerrarModal()">&times;</span>
+        <h2>Soporte Técnico</h2>
+        <p>Llama a este número para recibir ayuda:</p>
+        <h3 style="color: #2ecc71;">+57 300 123 4567</h3>
+    </div>
+</div>
 <script>
     // Definimos las funciones (las acciones que ocurrirán)
 
@@ -41,5 +50,18 @@
         // Aquí cambiamos el texto de algo en la pantalla usando JS
         console.log("El usuario pidió ayuda");
         alert("Un asesor se conectará contigo pronto. 🎧");
+    }
+
+    // Seleccionamos el elemento del DOM (el overlay)
+    const modal = document.getElementById("miOverlay");
+
+    // Función para mostrar el modal
+    function abrirModal() {
+        modal.style.display = "block";
+    }
+
+    // Función para ocultar el modal
+    function cerrarModal() {
+        modal.style.display = "none";
     }
 </script>
