@@ -12,6 +12,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/cuatro.css">
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- para las alertassssss -->
 
 </head>
 <div class="foto-perfil">
@@ -25,7 +26,30 @@
     <span class="etiqueta-oferta">OFERTA</span>
     <img src="../images/jake.jpg" alt="Producto">
     <h3>Zapatillas Pro</h3>
-    <button onclick="saludar()">Comprar ahora</button>
+    <button onclick="comprar()">Comprar ahora</button>
+</div>
+
+<div class="galeria">
+    <div class="foto">Foto 1</div>
+    <div class="foto">Foto 2</div>
+    <div class="foto">Foto 3</div>
+</div>
+<br>
+<div class="galeria">
+    <img class="foto" src="../images/jake.jpg" alt="Perfil">
+    <img class="foto" src="../images/diddy.jpg" alt="Perfil">
+    <img class="foto" src="../images/eloy.jpg" alt="Perfil">
+    <img class="foto" src="../images/charlie-kirk.jpg" alt="Perfil">
+    <img class="foto" src="../images/israel.jpg" alt="Perfil">
+    <img class="foto" src="../images/jeffrey.jpg" alt="Perfil">
+
+</div>
+
+<div class="contenedor">
+    <h1>Mi Blog de Aprendizaje</h1>
+    <p>Hoy estoy aprendiendo JavaScript de forma dinámica.</p>
+
+    <button id="boton-toggle" class="btn">Cambiar Modo</button>
 </div>
 
 <!-- <button class="btn-ayuda" onclick="ayuda()">¿Necesitas ayuda?</button> -->
@@ -40,28 +64,53 @@
     </div>
 </div>
 <script>
-    // Definimos las funciones (las acciones que ocurrirán)
+    // 1. ELIMINA ESTA LÍNEA: const Swal = require('sweetalert2') 
+    // No es necesaria en el navegador.
 
-    function saludar() {
-        alert("¡Producto añadido al carrito! 🛒");
+    function comprar() {
+        // Cambiamos el alert aburrido por SweetAlert
+        Swal.fire({
+            title: '¡Excelente elección!',
+            text: 'Producto añadido al carrito 🛒',
+            icon: 'success',
+            confirmButtonColor: '#2ecc71'
+        });
     }
 
     function ayuda() {
-        // Aquí cambiamos el texto de algo en la pantalla usando JS
-        console.log("El usuario pidió ayuda");
-        alert("Un asesor se conectará contigo pronto. 🎧");
+        Swal.fire({
+            title: 'Soporte Técnico',
+            text: 'Un asesor se conectará contigo pronto. 🎧',
+            icon: 'info',
+            footer: '<b>Llamada directa:</b> +57 300 123 4567'
+        });
     }
 
-    // Seleccionamos el elemento del DOM (el overlay)
+    // El resto de tu lógica para el modal manual
     const modal = document.getElementById("miOverlay");
 
-    // Función para mostrar el modal
     function abrirModal() {
         modal.style.display = "block";
     }
 
-    // Función para ocultar el modal
     function cerrarModal() {
         modal.style.display = "none";
     }
+
+    // 1. Buscamos el botón por su ID
+    const boton = document.getElementById('boton-toggle');
+
+    // 2. Le decimos qué hacer cuando alguien le haga "click"
+    boton.addEventListener('click', function () {
+
+        // 3. Accedemos al body y le "switcheamos" la clase dark-mode
+        document.body.classList.toggle('dark-mode');
+
+        // 4. Algo extra: cambiar el texto del botón según el modo
+        if (document.body.classList.contains('dark-mode')) {
+            boton.textContent = "Pasar a Modo Claro ☀️";
+        } else {
+            boton.textContent = "Pasar a Modo Oscuro 🌙";
+        }
+    });
 </script>

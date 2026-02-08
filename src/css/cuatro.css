@@ -69,3 +69,45 @@
   cursor: pointer;
   color: #888;
 }
+
+.galeria {
+  display: flex;             /* Se ponen en fila mágicamente */
+  justify-content: space-around; /* Deja el mismo espacio entre cada foto */
+  flex-wrap: wrap; /*Permite que los elementos "salten" a la siguiente línea.*/
+  background-color: #f0f0f0;
+  padding: 20px;
+  
+}
+
+.foto {
+    /* Calculamos: (100% / 3) menos un poquito para los espacios */
+  flex: 0 0 calc(30.33% - 20px);
+  width: 200px;
+  height: 200px;
+  background-color: coral;
+  border: 2px solid rgb(187, 4, 4);
+}
+
+/* Estado Normal (Claro) */
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.4s; /* Para que el cambio sea suave y no un golpe */
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+
+/* Estado Oscuro */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 2px solid #333;
+  font-weight: bold;
+}
