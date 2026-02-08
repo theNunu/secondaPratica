@@ -64,17 +64,17 @@
     padding: 5px;
 }
 
-.mis-botones {
-    background-color: aqua;
-    display: flex; /*alinear los botones horizontalemnte*/
-    margin-left: 700px;
-    margin-top: 200px;
-      transform: translate(-50%, -50%); /* El truco maestro para centrar perfecto */
+.fondo-boton {
+    /* background-color: aqua; */
+    /* bg-danger */
+     /* background-color: red !important; */
+     padding: 10px;
+     /* border-radius: 8%; */
 }
 
 .icon-circle {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     /* justify-content: center;
@@ -89,20 +89,27 @@
 
 /* --- VARIANTES DE COLOR --- */
 
-/* Variante Peligro */
+/*  -------------------------     Variante Peligro */
 .tema-peligro .icon-circle { background-color: #000000; } /* Fondo negro */
 .tema-peligro #iconoAdvertencia { color: #df0f0f; }       /* Icono blanco */
 
 .tema-peligro .fondo-descripcion { background-color: #0f1130; } /* Fondo negro */
 .tema-peligro #descripcion { color: #de1058; }       /* Icono blanco */
 
-/* Variante Casa / Info */
+.tema-peligro .fondo-boton { background-color: #ff0084; }    /* Fondo azul info */
+.tema-peligro #botonDescripcion { color: #ffffff; }
+
+/*  --------------------------------  Variante Casa / Info */
 .tema-info .icon-circle { background-color: #17a2b8; }    /* Fondo azul info */
 .tema-info #iconoAdvertencia { color: #ffffff; }
 
 .tema-info .fondo-descripcion { background-color: #17a2b8; }    /* Fondo azul info */
 .tema-info #descripcion { color: #0055ff; }
 
+.tema-info .fondo-boton { background-color: #17a2b8; }    /* Fondo azul info */
+.tema-info #botonDescripcion { color: #ffffff; }
+
+/*  --------------------------------  Variante Islam / Info */
 
 .tema-islam .icon-circle { background-color: #74f36d; }    /* Fondo azul info */
 .tema-islam #iconoAdvertencia { color: #00d65d; }
@@ -110,20 +117,6 @@
 .tema-islam .fondo-descripcion { background-color: #1ee38e; }    /* Fondo azul info */
 .tema-islam #descripcion { color: #0055ff; }
 
-
-
-/* Variante Religiones (puedes personalizarlas) */
-.tema-religion .icon-circle { background-color: #d2b48c; } /* Color tierra/arena */
-.tema-religion #iconoAdvertencia { color: #2e7d32; }       /* Verde */
-
-.fa-restroom.icon-circle { background-color: #d2b48c; } 
-.fa-restroom #iconoAdvertencia { color: #2e7d32; }       /* Verde */
-
-.tema-success .icon-circle { background-color: #2ecd48; } /* Fondo negro */
-.tema-success #iconoAdvertencia { color: #ffffff; }       /* Icono blanco */
-
-/* .descripcion */
-
-.tema-descripcion .fondo-descripcion { background-color: #d3ffda; } /* Fondo negro */
-.tema-descripcion #descripcion { color: #00ff15; }       /* Icono blanco */
+.tema-islam .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
+.tema-islam #botonDescripcion { color: #ffffff; }
 

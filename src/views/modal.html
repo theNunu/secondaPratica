@@ -14,9 +14,6 @@
     <script src="script.js"></script>
 
 </head>
-
-
-
 <body>
     <h1 class="text-center">nos encontramos en los modales</h1>
     <div class="p-5">
@@ -51,13 +48,19 @@
                     <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
                 </div> -->
 
-                <div id="fondoDescripcion" class=" fondo-descripcion p-2 mt-2 text-center">
+                <div id="fondoDescripcion" class=" fondo-descripcion p-2 text-center">
                     <p id="descripcion" class="">Este es un párrafo de avertencia.</p>
                 </div>
                 <br>
-                <button id="boton" class="miBoton">
-                    presiona el boton
+                <button id="fondo-boton" class="fondo-boton btn rounded-pill text-center ">
+                    <p id="botonDescripcion" class="">Este es boton de avertencia.</p>
+                    <!-- adadadadada -->
+                    <!-- <p id="descBtn"> descripciond e boton</p> -->
+                    <!-- presiona el boton -->
                 </button>
+
+                <!-- Botón redondeado tipo pastilla -->
+
             </div>
         </div>
 
@@ -80,23 +83,24 @@
 
 <script>
     const variantePeligro = {
-        // colorFondo: 'bg-dark',
-        tema: 'tema-peligro', // Nombre de la clase en CSS
+        tema: 'tema-peligro',
         icono: 'fa-skull',
-        // colorIcono: 'text-white',
         mensaje: '¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos! ¡Moriremos todos!¡Moriremos todos!',
         temaDesc: 'tema-peligro',
-        titulo: 'Peligro Crítico'
+        titulo: 'Peligro Crítico',
+        descBtn: 'boton de peligro',
+        temaBtn: 'tema-peligro'
     };
 
     const varianteCasa = {
-        // colorFondo: 'bg-info',
         tema: 'tema-info',
         icono: 'fa-house',
-        temaDesc: 'tema-info',
-        // colorIcono: 'text-success',
         mensaje: 'Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa Mensjae de casa',
-        titulo: 'Titulo de casa'
+        temaDesc: 'tema-info',
+        titulo: 'Titulo de casa',
+        descBtn: 'boton de casa',
+        temaBtn: 'tema-info'
+        // temaBtn: 'tema-info'
     };
 
     const varianteIslam = {
@@ -105,8 +109,10 @@
         tema: 'tema-islam',
         temaDesc: 'tema-islam',
         // colorIcono: 'text-success',
-        mensaje: 'Islam se refiere a la religión monoteísta practicada por durante un mes al año el Ramadán, que consiste en un ayuno durante las horas del día. Es una religión practicada por millones de personas en todo el mundo.',
-        titulo: 'Islam'
+        mensaje: 'Islam se refiere a la religión mono consiste en un ayuno durante las horas del día. Es una religión practicada por millones de personas en todo el mundo.',
+        titulo: 'Islam',
+        descBtn: 'boton de Islam',
+        temaBtn: 'tema-islam'
     };
 
     const varianteCristiana = {
@@ -141,11 +147,13 @@
         // console.log(icono, variante.icono);
         const description = document.getElementById('descripcion');
         const titulo = document.getElementById('titulo');
+        const btnDesc = document.getElementById('botonDescripcion');
         // const title = document.getElementById('titulo');
         const contenedorInterno = document.querySelector(".modal-contenido");
 
-        descripcion.innerText = variante.mensaje;
-        titulo.innerText = variante.titulo
+        description.innerText = variante.mensaje;
+        titulo.innerText = variante.titulo;
+        btnDesc.innerText = variante.descBtn;
         // 1. LIMPIAR TEMAS ANTERIORES
         // Quitamos cualquier clase que empiece con "tema-"
         Array.from(contenedorInterno.classList).forEach(cls => {
@@ -155,6 +163,7 @@
         // 2. APLICAR EL NUEVO TEMA AL PADRE
         contenedorInterno.classList.add(variante.tema);
         contenedorInterno.classList.add(variante.temaDesc);
+        contenedorInterno.classList.add(variante.temaBtn);
 
         // --- 3. LIMPIAR Y CAMBIAR ICONO (fa-*) ---
         // IMPORTANTE: Protegemos 'fa-solid' y 'fa-2x'
