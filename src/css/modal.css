@@ -99,7 +99,7 @@
 .tema-peligro #descripcion { color: #de1058; }       /* Icono blanco */
 
 .tema-peligro .fondo-boton { background-color: #ff0084; }    /* Fondo azul info */
-.tema-peligro #botonDescripcion { color: #ffffff; }
+.tema-peligro #botonDescripcion { color: #ffffff; } 
 
 /*  --------------------------------  Variante Casa / Info */
 .tema-info .icon-circle { background-color: #17a2b8; }    /* Fondo azul info */
@@ -121,4 +121,21 @@
 
 .tema-islam .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
 .tema-islam #botonDescripcion { color: #ffffff; }
+
+/* --- TEMA PELIGRO --- */
+.tema-peligro #titulo {
+    color: #df0f0f;      /* Rojo sangre para peligro */
+    text-transform: uppercase; /* Opcional: ponerlo en mayúsculas solo en peligro */
+    letter-spacing: 2px;
+}
+
+/* --- TEMA INFO --- */
+.tema-info #titulo {
+    color: #17a2b8;      /* Azul info para el título */
+}
+
+/* --- TEMA ISLAM --- */
+.tema-islam #titulo {
+    color: #2e7d32;      /* Verde oscuro para el título */
+}
 
