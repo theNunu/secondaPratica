@@ -1,0 +1,248 @@
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/modal-final.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <h1 class="text-center">nos encontramos en los modales finales</h1>
+    <div class="p-5">
+        <!-- <button class="btn btn-success" onclick="levantarModal('success_store')">Ver exito</button> -->
+        <!-- <button class="btn btn-warning" onclick="abrirModal()">abrir modal</button> -->
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(variantePeligro)">Ver Peligro</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCasa)">Ver Casa</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteIslam)">islam</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
+
+        
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDavid)">david</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDinero)">dinero</button>
+        <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
+        <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
+        <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
+
+
+        <div id="miOverlay" class="overlay" onclick="cerrarModal()">
+            <div class="modal-contenido" onclick="event.stopPropagation()">
+                <!-- <span class="boton-cerrar" onclick="cerrarModal()">&times;</span> -->
+                <div class="boton-cerrar align-items-center justify-content-center" onclick="cerrarModal()">
+                    <i class="fa-solid fa-xmark fa-1x text-secondary"></i>
+                </div>
+
+                <div class="icon-circle d-flex align-items-center justify-content-center">
+                    <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-2x"></i>
+                </div>
+                <h3 id="titulo"></h3>
+                <p id="mensajeDos"></p>
+
+                <div id="fondoDescripcion" class=" fondo-descripcion p-2 text-center">
+                    <p id="descripcion" class=""></p>
+                </div>
+
+                <p id="tiempoEspera"></p>
+
+                <button class="fondo-boton btn rounded-pill">
+                    <p id="botonDescripcion" class=""></p>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+    // El resto de tu lógica para el modal manual
+    const modal = document.getElementById("miOverlay");
+
+    function abrirModal() {
+        modal.style.display = "block";
+    }
+
+    function cerrarModal() {
+        modal.style.display = "none";
+    }
+
+</script>
+
+<script>
+    const variantePeligro = {
+        temaIcono: 'tema-peligro',
+        icono: 'fa-circle-check',
+        titulo: '¡Verificación exitosa!',
+        mensajeDos: 'Tu número de celular ha sido verificado correctamente',
+        // mensaje: 'Tu número de celular ha sido verificado correctamente',
+        temaDesc: 'tema-peligro',
+        descBtn: 'Continuar',
+        temaBtn: 'tema-peligro'
+    };
+
+    const varianteCasa = {
+        temaIcono: 'tema-info',
+        titulo: 'Verificación fallida',
+        icono: 'fa-circle-exclamation',
+        mensajeDos: 'El código ingresado no es válido',
+        mensaje: 'Por favor, verifica el código e inténtalo de nuevo. Te quedan 2 intentos.',
+        temaDesc: 'tema-info',
+
+        descBtn: 'Intentar nuevamente',
+        temaBtn: 'tema-info',
+        // tiempo: '4:54'
+        // temaBtn: 'tema-info'
+    };
+
+    const varianteIslam = {
+        temaIcono: 'tema-info',
+        titulo: 'Gracias por aplicar',
+        // colorFondo: 'bg-info',
+        icono: 'fa-circle-exclamation',
+        titulo: 'Gracias por aplicar',
+        temaDesc: 'tema-islam',
+        // colorIcono: 'text-success',
+        mensaje: 'Tu Crédito De Prati se encuentra inactivo o bloqueado. Para más información, escríbenos por WhatsApp al 0979403435',
+
+        descBtn: 'Volver al inicio',
+        temaBtn: 'tema-islam'
+    };
+
+    const varianteCristiana = {
+        temaIcono: 'tema-info',
+        titulo: 'Gracias por aplicar',
+        icono: 'fa-circle-exclamation',
+        mensaje: 'Tu Crédito De Prati está activo y puedes usarlo en tiendas, App y en deprati.com',
+        descBtn: 'Ir a la tienda',
+    };
+
+    const varianteJudia = {
+        // colorFondo: 'bg-info',
+        icono: 'fa-book-tanakh',
+        // colorIcono: 'text-success',
+        mensaje: 'El judaísmo es la antigua religión monoteísta del pueblo judío, basada en la creencia en un único Dios que hizo un pacto con Abraham y reveló Su ley (la Torá) a Moisés, constituyendo no solo una fe, sino también una cultura y una nación, con textos sagrados como la Torá y el Talmud, y prácticas como el Shabat y las leyes dietéticas (kosher).',
+        titulo: 'Judaismo'
+    };
+
+    const varianteDavid = {
+        // colorFondo: 'bg-info',
+        icono: 'fa-star-of-david',
+        temaIcono: 'tema-david',
+        // colorIcono: 'text-success',
+        // mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+        titulo: 'David',
+        descBtn: 'boton de david',
+        temaBtn: 'tema-david',
+        mensajeDos: 'otra descripcion de david'
+    };
+
+    const varianteDinero = {
+        // colorFondo: 'bg-info',
+        icono: 'fa-dollar-sign',
+        temaIcono: 'tema-david',
+        // colorIcono: 'text-success',
+        mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+        temaDesc: 'tema-islam',
+        titulo: 'Dinero',
+        descBtn: 'boton de dinero',
+        temaBtn: 'tema-david',
+        mensajeDos: 'otra descripcion de dinero'
+    };
+    // <i class="fa-solid fa-book-tanakh"></i>
+
+    // <i class="fa-solid fa-book-bible"></i>
+</script>
+
+<script>
+
+    function cambiarBotonGenerico(variante) {
+
+        const modal = document.getElementById("miOverlay");
+
+        modal.style.display = "block";
+
+        const icono = document.getElementById('iconoAdvertencia');
+        // console.log(icono, variante.icono);
+        const description = document.getElementById('descripcion');
+        const titulo = document.getElementById('titulo');
+        const btnDesc = document.getElementById('botonDescripcion');
+        const contenedorDescripcion = document.getElementById('fondoDescripcion');
+        // const title = document.getElementById('titulo');
+        const contenedorInterno = document.querySelector(".modal-contenido");
+
+        const txtDesc2 = document.getElementById("mensajeDos");
+        const tiempoEspera = document.getElementById("tiempoEspera");
+
+        description.innerText = variante.mensaje;
+        titulo.innerText = variante.titulo;
+        btnDesc.innerText = variante.descBtn;
+        // 1. LIMPIAR TEMAS ANTERIORES
+        // Quitamos cualquier clase que empiece con "tema-"
+        Array.from(contenedorInterno.classList).forEach(cls => {
+            if (cls.startsWith('tema-')) contenedorInterno.classList.remove(cls);
+        });
+
+        // 2. APLICAR EL NUEVO TEMA AL PADRE
+        contenedorInterno.classList.add(variante.temaIcono);
+        // contenedorInterno.classList.add(variante.temaDesc);
+        // contenedorInterno.classList.add(variante.temaBtn);
+
+        // --- 3. LIMPIAR Y CAMBIAR ICONO (fa-*) ---
+        // IMPORTANTE: Protegemos 'fa-solid' y 'fa-2x'
+        Array.from(icono.classList).forEach(cls => {
+            if (cls.startsWith('fa-') && cls !== 'fa-solid' && !cls.includes('2x')) {
+                icono.classList.remove(cls);
+            }
+        });
+
+        icono.classList.add(variante.icono);
+
+        // 1. Verificamos si hay mensaje
+        if (variante.mensaje && variante.mensaje.trim() !== "") {
+            // SI HAY: Ponemos el texto y nos aseguramos de que sea visible
+            description.innerText = variante.mensaje;
+            contenedorDescripcion.style.display = "block";
+        } else {
+            // NO HAY: Escondemos el contenedor completo
+            contenedorDescripcion.style.display = "none";
+        }
+
+        // LÓGICA PARA DESCRIPCIÓN 2 (Opcional)
+        // 1. Verificamos si hay mensaje
+        if (variante.mensajeDos && variante.mensajeDos.trim() !== "") {
+            txtDesc2.innerText = variante.mensajeDos;
+            txtDesc2.style.display = "block"; // Lo mostramos
+        } else {
+            txtDesc2.innerText = "";
+            txtDesc2.style.display = "none"; // Lo ocultamos para que no ocupe espacio
+        }
+
+        if (variante.tiempo && variante.tiempo.trim() !== "") {
+            tiempoEspera.innerText = variante.tiempo;
+            tiempoEspera.style.display = "block"; // Lo mostramos
+        } else {
+            tiempoEspera.innerText = "";
+            tiempoEspera.style.display = "none"; // Lo ocultamos para que no ocupe espacio
+        }
+
+
+    }
+
+    // que aparezca el modal cargado por defecto
+    document.addEventListener('DOMContentLoaded', () => {
+
+        cambiarBotonGenerico(variantePeligro);
+    });
+
+
+</script>
