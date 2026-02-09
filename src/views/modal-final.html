@@ -50,7 +50,7 @@
                     <p id="descripcion" class=""></p>
                 </div>
 
-                <p id="tiempoEspera"></p>
+                <p id="tiempoEspera" class="text-secondary"></p>
 
                 <button class="fondo-boton btn rounded-pill">
                     <p id="botonDescripcion" class=""></p>
@@ -104,7 +104,7 @@
 
     const graciasPorAplicar = {
         temaIcono: 'tema-advertencia',
-        titulo: 'Gracias por aplicar',
+        // titulo: 'Gracias por aplicar',
         // colorFondo: 'bg-info',
         icono: 'fa-circle-exclamation',
         titulo: 'Gracias por aplicar',
@@ -123,10 +123,11 @@
         mensaje: 'Tu Crédito De Prati está activo y puedes usarlo en tiendas, App y en deprati.com',
         temaDesc: 'tema-success',
         descBtn: 'Ir a la tienda',
+        // temaBtn: 'tema-error'
     };
 
     const limiteAlcanzado = {
-         temaIcono: 'tema-advertencia',
+        temaIcono: 'tema-advertencia',
         icono: 'fa-circle-exclamation',
         mensaje: 'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
         titulo: 'Límite de intentos alcanzado',
@@ -136,16 +137,14 @@
     };
 
     const limiteAlcanzado2 = {
+        temaIcono: 'tema-advertencia',
         icono: 'fa-circle-exclamation',
-        temaIcono: 'tema-david',
-        // colorIcono: 'text-success',
-        mensaje:  'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
+        mensaje: 'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
         temaDesc: 'tema-islam',
         titulo: 'Límite de intentos alcanzado',
         descBtn: 'Volver a intentarlo',
-        temaBtn: 'tema-david',
+        temaBtn: 'tema-error',
         tiempo: '0:00'
-        // mensajeDos: 'otra descripcion de dinero'
     };
 
 </script>
@@ -181,8 +180,8 @@
 
         // 2. APLICAR EL NUEVO TEMA AL PADRE
         contenedorInterno.classList.add(variante.temaIcono);
-        // contenedorInterno.classList.add(variante.temaDesc);
-        // contenedorInterno.classList.add(variante.temaBtn);
+        contenedorInterno.classList.add(variante.temaDesc);
+        contenedorInterno.classList.add(variante.temaBtn);
 
         // --- 3. LIMPIAR Y CAMBIAR ICONO (fa-*) ---
         // IMPORTANTE: Protegemos 'fa-solid' y 'fa-2x'
