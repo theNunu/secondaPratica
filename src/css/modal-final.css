@@ -85,8 +85,8 @@ position: absolute;
 .fondo-boton {
     width: 100%;
     height: 35px;
-
-    background-color: aqua;
+/* 
+    background-color: aqua; */
     /* bg-danger */
      /* background-color: red !important; */
      /* padding: 10px; */
@@ -113,61 +113,71 @@ position: absolute;
 /* --- VARIANTES DE COLOR --- */
 
 /*  -------------------------     Variante Peligro */
-.tema-peligro .icon-circle { background-color: #000000; } /* Fondo negro */
-.tema-peligro #iconoAdvertencia { color: #df0f0f; }       /* Icono blanco */
+.tema-success .icon-circle { background-color: #cfebcf; } /* Fondo negro */
+.tema-success #iconoAdvertencia { color: #0bb037; }       /* Icono blanco */
 
-.tema-peligro .fondo-descripcion { background-color: #0f1130; } /* Fondo negro */
-.tema-peligro #descripcion { color: #de1058; }       /* Icono blanco */
+.tema-success .fondo-descripcion { background-color:  #d3efd3; } /* Fondo negro */
+.tema-success #descripcion { color:#0bb037; }       /* Icono blanco */
 
-.tema-peligro .fondo-boton { background-color: #ff0084; }    /* Fondo azul info */
-.tema-peligro #botonDescripcion { color: #ffffff; } 
-
-/*  --------------------------------  Variante Casa / Info */
-.tema-info .icon-circle { background-color: #17a2b8; }    /* Fondo azul info */
-.tema-info #iconoAdvertencia { color: #ffffff; }
-
-.tema-info .fondo-descripcion { background-color: #17a2b8; }    /* Fondo azul info */
-.tema-info #descripcion { color: #0055ff; }
-
-.tema-info .fondo-boton { background-color: #17a2b8; }    /* Fondo azul info */
-.tema-info #botonDescripcion { color: #ffffff; }
-
-/*  --------------------------------  Variante Islam / Info */
-
-.tema-islam .icon-circle { background-color: #74f36d; }    /* Fondo azul info */
-.tema-islam #iconoAdvertencia { color: #00d65d; }
-
-.tema-islam .fondo-descripcion { background-color: #1ee38e; }    /* Fondo azul info */
-.tema-islam #descripcion { color: #0055ff; }
-
-.tema-islam .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
-.tema-islam #botonDescripcion { color: #ffffff; }
-
-
-/*  --------------------------------  Variante David / Info */
-
-.tema-david .icon-circle { background-color: #0014f3; }    /* Fondo azul info */
-.tema-david #iconoAdvertencia { color: #ffffff; }
-
-.tema-david .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
-.tema-david #botonDescripcion { color: #ffffff; }
-
-.tema-david .fondo-boton { background-color: #0f00dd; }    /* Fondo azul info */
-.tema-david #botonDescripcion { color: #ffffff; }
+.tema-success .fondo-boton { background-color: #0bb037;  }    /* Fondo azul info */
+.tema-success #botonDescripcion { color: #ffffff; } 
 
 
 /* --- TEMA PELIGRO --- */
-.tema-peligro #titulo {
-    color: #df0f0f;      /* Rojo sangre para peligro */
+.tema-success #titulo {
+    color:#0bb037;      /* Rojo sangre para peligro */
 }
 
-/* --- TEMA INFO --- */
-.tema-info #titulo {
-    color: #17a2b8;      /* Azul info para el título */
+/*  --------------------------------  Variante Casa / Info */
+.tema-error .icon-circle { background-color: #f0d0d2; }    /* Fondo azul info */
+.tema-error #iconoAdvertencia { color: #e01b39; }
+
+.tema-error .fondo-descripcion { background-color: #f4dce0; }    /* Fondo azul info */
+.tema-error #descripcion { color: #bd0c21;  }
+
+.tema-error .fondo-boton { background-color: #bd0c21; }    /* Fondo azul info */
+.tema-error #botonDescripcion { color: #ffffff; }
+
+.tema-error #titulo {
+    color: #010001;
 }
 
-/* --- TEMA ISLAM --- */
-.tema-islam #titulo {
-    color: #2e7d32;      /* Verde oscuro para el título */
+/* --- GRACIAS POR APLICAR --- */
+
+.tema-advertencia .icon-circle { background-color:  #ead7c6; }    /* Fondo azul info */
+.tema-advertencia #iconoAdvertencia { color:#985112; }
+
+.tema-advertencia .fondo-descripcion { background-color: #ead7c6; }    /* Fondo azul info */
+.tema-advertencia #descripcion { color: #985112; }
+
+.tema-advertencia .fondo-boton { background-color: #bd0c21; }    /* Fondo azul info */
+.tema-advertencia #botonDescripcion { color: #ffffff; }
+.tema-advertencia #titulo {
+    color:#c77b38;;
 }
+
+/* --- GRACIAS POR APLICAR 2 --- */
+
+
+
+
+
+/* --- LIMITE DE INTENTOS ALCANZADOS--- */
+.tema-espera .fondo-boton { background-color: #a8a4a4; }    /* Fondo azul info */
+.tema-espera #botonDescripcion { color: #ffffff; }
+
+
+/* --- TEMA PELIGRO --- */
+/* 
+
+/*  --------------------------------  Gracias por aplicar / Info */
+
+
+
+/*  --------------------------------  Variante Islam / Info */
+
+
+
+
+
 

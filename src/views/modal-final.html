@@ -79,59 +79,59 @@
 
 <script>
     const verificacionExitosa = {
-        temaIcono: 'tema-peligro',
+        temaIcono: 'tema-success',
         icono: 'fa-circle-check',
         titulo: '¡Verificación exitosa!',
         mensajeDos: 'Tu número de celular ha sido verificado correctamente',
-        // mensaje: 'Tu número de celular ha sido verificado correctamente',
-        temaDesc: 'tema-peligro',
+        temaDesc: 'tema-success',
         descBtn: 'Continuar',
-        temaBtn: 'tema-peligro'
+        temaBtn: 'tema-success'
     };
 
     const verificacionFallida = {
-        temaIcono: 'tema-info',
+        temaIcono: 'tema-error',
         titulo: 'Verificación fallida',
         icono: 'fa-circle-exclamation',
         mensajeDos: 'El código ingresado no es válido',
         mensaje: 'Por favor, verifica el código e inténtalo de nuevo. Te quedan 2 intentos.',
-        temaDesc: 'tema-info',
+        temaDesc: 'tema-error',
 
         descBtn: 'Intentar nuevamente',
-        temaBtn: 'tema-info',
+        temaBtn: 'tema-error',
         // tiempo: '4:54'
         // temaBtn: 'tema-info'
     };
 
     const graciasPorAplicar = {
-        temaIcono: 'tema-info',
+        temaIcono: 'tema-advertencia',
         titulo: 'Gracias por aplicar',
         // colorFondo: 'bg-info',
         icono: 'fa-circle-exclamation',
         titulo: 'Gracias por aplicar',
-        temaDesc: 'tema-islam',
+        temaDesc: 'tema-advertencia',
         // colorIcono: 'text-success',
         mensaje: 'Tu Crédito De Prati se encuentra inactivo o bloqueado. Para más información, escríbenos por WhatsApp al 0979403435',
 
         descBtn: 'Volver al inicio',
-        temaBtn: 'tema-islam'
+        temaBtn: 'tema-advertencia'
     };
 
     const graciasPorAplicar2 = {
-        temaIcono: 'tema-info',
+        temaIcono: 'tema-success',
         titulo: 'Gracias por aplicar',
         icono: 'fa-circle-exclamation',
         mensaje: 'Tu Crédito De Prati está activo y puedes usarlo en tiendas, App y en deprati.com',
+        temaDesc: 'tema-success',
         descBtn: 'Ir a la tienda',
     };
 
     const limiteAlcanzado = {
-        temaIcono: 'tema-info',
+         temaIcono: 'tema-advertencia',
         icono: 'fa-circle-exclamation',
         mensaje: 'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
         titulo: 'Límite de intentos alcanzado',
         descBtn: 'Volver a intentarlo',
-        temaBtn: 'tema-islam',
+        temaBtn: 'tema-espera',
         tiempo: '4:54'
     };
 
@@ -148,21 +148,6 @@
         // mensajeDos: 'otra descripcion de dinero'
     };
 
-    // const varianteDinero = {
-    //     // colorFondo: 'bg-info',
-    //     icono: 'fa-circle-check',
-    //     temaIcono: 'tema-david',
-    //     // colorIcono: 'text-success',
-    //     mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
-    //     temaDesc: 'tema-islam',
-    //     titulo: 'Dinero',
-    //     descBtn: 'boton de dinero',
-    //     temaBtn: 'tema-david',
-    //     mensajeDos: 'otra descripcion de dinero'
-    // };
-    // <i class="fa-solid fa-book-tanakh"></i>
-
-    // <i class="fa-solid fa-book-bible"></i>
 </script>
 
 <script>
@@ -243,7 +228,7 @@
     // que aparezca el modal cargado por defecto
     document.addEventListener('DOMContentLoaded', () => {
 
-        cambiarBotonGenerico(variantePeligro);
+        cambiarBotonGenerico(verificacionExitosa);
     });
 
 
