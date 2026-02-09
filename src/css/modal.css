@@ -79,12 +79,7 @@ position: absolute;
     align-items: center;
     justify-content: center;
     
-    /* 4. Estilo y cursor */
     background-color: #eee; /* Un gris claro */
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 10;
 }
 
 .fondo-boton {
