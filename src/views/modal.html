@@ -36,22 +36,21 @@
         <div id="miOverlay" class="overlay" onclick="cerrarModal()">
             <div class="modal-contenido" onclick="event.stopPropagation()">
                 <!-- <span class="boton-cerrar" onclick="cerrarModal()">&times;</span> -->
-                <div class="boton-cerrar bg-warning rounded-circle align-items-center justify-content-center"
-                    onclick="cerrarModal()">
+                <div class="boton-cerrar align-items-center justify-content-center" onclick="cerrarModal()">
                     <i class="fa-solid fa-xmark fa-1x"></i>
                 </div>
 
                 <div class="icon-circle d-flex align-items-center justify-content-center">
                     <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-2x"></i>
                 </div>
-                <h3 id="titulo">titulo de davertencia</h3>
+                <h3 id="titulo"></h3>
                 <p id="mensajeDos"></p>
 
                 <div id="fondoDescripcion" class=" fondo-descripcion p-2 text-center">
                     <p id="descripcion" class=""></p>
                 </div>
-        
-                <button class="fondo-boton btn rounded-pill">
+
+                <button class="fondo-boton btn rounded-pill mt-2">
                     <p id="botonDescripcion" class=""></p>
                 </button>
 
@@ -220,5 +219,12 @@
 
 
     }
+
+    // que aparezca el modal cargado por defecto
+    document.addEventListener('DOMContentLoaded', () => {
+
+        cambiarBotonGenerico(variantePeligro);
+    });
+
 
 </script>
