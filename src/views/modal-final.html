@@ -20,18 +20,17 @@
     <div class="p-5">
         <!-- <button class="btn btn-success" onclick="levantarModal('success_store')">Ver exito</button> -->
         <!-- <button class="btn btn-warning" onclick="abrirModal()">abrir modal</button> -->
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(variantePeligro)">Ver Peligro</button>
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCasa)">Ver Casa</button>
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteIslam)">islam</button>
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(verificacionExitosa)">¡Verificación
+            exitosa!</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(verificacionFallida)">Verificación
+            fallida</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(graciasPorAplicar)">Gracias por aplicar</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(graciasPorAplicar2)">Gracias por aplicar2</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(limiteAlcanzado)">limite alcanzado</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(limiteAlcanzado2)">limite alcanzado2</button>
 
-        
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDavid)">david</button>
-        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDinero)">dinero</button>
-        <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
-        <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
-        <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
+
+
 
 
         <div id="miOverlay" class="overlay" onclick="cerrarModal()">
@@ -79,7 +78,7 @@
 </script>
 
 <script>
-    const variantePeligro = {
+    const verificacionExitosa = {
         temaIcono: 'tema-peligro',
         icono: 'fa-circle-check',
         titulo: '¡Verificación exitosa!',
@@ -90,7 +89,7 @@
         temaBtn: 'tema-peligro'
     };
 
-    const varianteCasa = {
+    const verificacionFallida = {
         temaIcono: 'tema-info',
         titulo: 'Verificación fallida',
         icono: 'fa-circle-exclamation',
@@ -104,7 +103,7 @@
         // temaBtn: 'tema-info'
     };
 
-    const varianteIslam = {
+    const graciasPorAplicar = {
         temaIcono: 'tema-info',
         titulo: 'Gracias por aplicar',
         // colorFondo: 'bg-info',
@@ -118,7 +117,7 @@
         temaBtn: 'tema-islam'
     };
 
-    const varianteCristiana = {
+    const graciasPorAplicar2 = {
         temaIcono: 'tema-info',
         titulo: 'Gracias por aplicar',
         icono: 'fa-circle-exclamation',
@@ -126,38 +125,41 @@
         descBtn: 'Ir a la tienda',
     };
 
-    const varianteJudia = {
-        // colorFondo: 'bg-info',
-        icono: 'fa-book-tanakh',
-        // colorIcono: 'text-success',
-        mensaje: 'El judaísmo es la antigua religión monoteísta del pueblo judío, basada en la creencia en un único Dios que hizo un pacto con Abraham y reveló Su ley (la Torá) a Moisés, constituyendo no solo una fe, sino también una cultura y una nación, con textos sagrados como la Torá y el Talmud, y prácticas como el Shabat y las leyes dietéticas (kosher).',
-        titulo: 'Judaismo'
+    const limiteAlcanzado = {
+        temaIcono: 'tema-info',
+        icono: 'fa-circle-exclamation',
+        mensaje: 'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
+        titulo: 'Límite de intentos alcanzado',
+        descBtn: 'Volver a intentarlo',
+        temaBtn: 'tema-islam',
+        tiempo: '4:54'
     };
 
-    const varianteDavid = {
-        // colorFondo: 'bg-info',
-        icono: 'fa-star-of-david',
+    const limiteAlcanzado2 = {
+        icono: 'fa-circle-exclamation',
         temaIcono: 'tema-david',
         // colorIcono: 'text-success',
-        // mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
-        titulo: 'David',
-        descBtn: 'boton de david',
-        temaBtn: 'tema-david',
-        mensajeDos: 'otra descripcion de david'
-    };
-
-    const varianteDinero = {
-        // colorFondo: 'bg-info',
-        icono: 'fa-dollar-sign',
-        temaIcono: 'tema-david',
-        // colorIcono: 'text-success',
-        mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+        mensaje:  'Por favor, espera 5 minutos para volver a intentarlo. Tendrás 3 intentos adicionales disponibles.',
         temaDesc: 'tema-islam',
-        titulo: 'Dinero',
-        descBtn: 'boton de dinero',
+        titulo: 'Límite de intentos alcanzado',
+        descBtn: 'Volver a intentarlo',
         temaBtn: 'tema-david',
-        mensajeDos: 'otra descripcion de dinero'
+        tiempo: '0:00'
+        // mensajeDos: 'otra descripcion de dinero'
     };
+
+    // const varianteDinero = {
+    //     // colorFondo: 'bg-info',
+    //     icono: 'fa-circle-check',
+    //     temaIcono: 'tema-david',
+    //     // colorIcono: 'text-success',
+    //     mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+    //     temaDesc: 'tema-islam',
+    //     titulo: 'Dinero',
+    //     descBtn: 'boton de dinero',
+    //     temaBtn: 'tema-david',
+    //     mensajeDos: 'otra descripcion de dinero'
+    // };
     // <i class="fa-solid fa-book-tanakh"></i>
 
     // <i class="fa-solid fa-book-bible"></i>
