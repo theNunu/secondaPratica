@@ -14,6 +14,7 @@
     <script src="script.js"></script>
 
 </head>
+
 <body>
     <h1 class="text-center">nos encontramos en los modales</h1>
     <div class="p-5">
@@ -25,6 +26,7 @@
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteIslam)">islam</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDavid)">david</button>
         <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
         <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
         <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
@@ -130,6 +132,17 @@
         mensaje: 'El judaísmo es la antigua religión monoteísta del pueblo judío, basada en la creencia en un único Dios que hizo un pacto con Abraham y reveló Su ley (la Torá) a Moisés, constituyendo no solo una fe, sino también una cultura y una nación, con textos sagrados como la Torá y el Talmud, y prácticas como el Shabat y las leyes dietéticas (kosher).',
         titulo: 'Judaismo'
     };
+
+    const varianteDavid = {
+        // colorFondo: 'bg-info',
+        icono: 'fa-star-of-david',
+        temaIcono: 'tema-david',
+        // colorIcono: 'text-success',
+        // mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+        titulo: 'David',
+        descBtn: 'boton de david',
+        temaBtn: 'tema-david'
+    };
     // <i class="fa-solid fa-book-tanakh"></i>
 
     // <i class="fa-solid fa-book-bible"></i>
@@ -148,6 +161,7 @@
         const description = document.getElementById('descripcion');
         const titulo = document.getElementById('titulo');
         const btnDesc = document.getElementById('botonDescripcion');
+        const contenedorDescripcion = document.getElementById('fondoDescripcion');
         // const title = document.getElementById('titulo');
         const contenedorInterno = document.querySelector(".modal-contenido");
 
@@ -174,6 +188,16 @@
         });
 
         icono.classList.add(variante.icono);
+
+        // 1. Verificamos si hay mensaje
+        if (variante.mensaje && variante.mensaje.trim() !== "") {
+            // SI HAY: Ponemos el texto y nos aseguramos de que sea visible
+            description.innerText = variante.mensaje;
+            contenedorDescripcion.style.display = "block";
+        } else {
+            // NO HAY: Escondemos el contenedor completo
+            contenedorDescripcion.style.display = "none";
+        }
 
 
     }

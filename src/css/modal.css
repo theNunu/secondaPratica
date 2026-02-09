@@ -55,6 +55,10 @@
     height: 350px;
     position: relative; /*para que el boton de x hijo se vallam a la derecha*/
       border-radius: 15px; /* Valor aplicado a todas las esquinas */
+
+      /* ESTO ES LO IMPORTANTE */
+    height: auto;        /* El alto se ajusta al contenido */
+    min-height: 200px;   /* Pero que no sea más pequeño que esto */
 }
 
 /* El botón de cerrar (X) */
@@ -121,6 +125,19 @@
 
 .tema-islam .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
 .tema-islam #botonDescripcion { color: #ffffff; }
+
+
+/*  --------------------------------  Variante David / Info */
+
+.tema-david .icon-circle { background-color: #0014f3; }    /* Fondo azul info */
+.tema-david #iconoAdvertencia { color: #ffffff; }
+
+.tema-david .fondo-boton { background-color: #6aff8d; }    /* Fondo azul info */
+.tema-david #botonDescripcion { color: #ffffff; }
+
+.tema-david .fondo-boton { background-color: #0f00dd; }    /* Fondo azul info */
+.tema-david #botonDescripcion { color: #ffffff; }
+
 
 /* --- TEMA PELIGRO --- */
 .tema-peligro #titulo {
