@@ -128,6 +128,9 @@ position: absolute;
     color:#0bb037;      /* Rojo sangre para peligro */
 }
 
+
+
+
 /*  --------------------------------  Variante Casa / Info */
 .tema-error .icon-circle { background-color: #f0d0d2; }    /* Fondo azul info */
 .tema-error #iconoAdvertencia { color: #e01b39; }
