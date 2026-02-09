@@ -27,6 +27,7 @@
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDavid)">david</button>
+            <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDinero)">dinero</button>
         <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
         <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
         <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
@@ -49,6 +50,7 @@
                     style="width: 100px; height: 100px;">
                     <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
                 </div> -->
+                <p id="mensajeDos">otro mensaje</p>
 
                 <div id="fondoDescripcion" class=" fondo-descripcion p-2 text-center">
                     <p id="descripcion" class="">Este es un párrafo de avertencia.</p>
@@ -141,7 +143,21 @@
         // mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
         titulo: 'David',
         descBtn: 'boton de david',
-        temaBtn: 'tema-david'
+        temaBtn: 'tema-david',
+        mensajeDos: 'otra descripcion de david'
+    };
+
+    const varianteDinero = {
+        // colorFondo: 'bg-info',
+        icono: 'fa-dollar-sign',
+        temaIcono: 'tema-david',
+        // colorIcono: 'text-success',
+        mensaje: 'El Su ley (la Torá) a Moisés, constituykosher).',
+        temaDesc: 'tema-islam',
+        titulo: 'Dinero',
+        descBtn: 'boton de dinero',
+        temaBtn: 'tema-david',
+        mensajeDos: 'otra descripcion de dinero'
     };
     // <i class="fa-solid fa-book-tanakh"></i>
 
@@ -164,6 +180,8 @@
         const contenedorDescripcion = document.getElementById('fondoDescripcion');
         // const title = document.getElementById('titulo');
         const contenedorInterno = document.querySelector(".modal-contenido");
+
+        const txtDesc2 = document.getElementById("mensajeDos");
 
         description.innerText = variante.mensaje;
         titulo.innerText = variante.titulo;
@@ -197,6 +215,16 @@
         } else {
             // NO HAY: Escondemos el contenedor completo
             contenedorDescripcion.style.display = "none";
+        }
+
+        // LÓGICA PARA DESCRIPCIÓN 2 (Opcional)
+        // 1. Verificamos si hay mensaje
+        if (variante.mensajeDos && variante.mensajeDos.trim() !== "") {
+            txtDesc2.innerText = variante.mensajeDos;
+            txtDesc2.style.display = "block"; // Lo mostramos
+        } else {
+            txtDesc2.innerText = "";
+            txtDesc2.style.display = "none"; // Lo ocultamos para que no ocupe espacio
         }
 
 
