@@ -50,7 +50,9 @@
                     <p id="descripcion" class=""></p>
                 </div>
 
-                <button class="fondo-boton btn rounded-pill mt-2">
+                <p id="tiempoEspera"></p>
+
+                <button class="fondo-boton btn rounded-pill">
                     <p id="botonDescripcion" class=""></p>
                 </button>
 
@@ -93,7 +95,8 @@
         temaDesc: 'tema-info',
         titulo: 'Titulo de casa',
         descBtn: 'boton de casa',
-        temaBtn: 'tema-info'
+        temaBtn: 'tema-info',
+        tiempo: '4:54'
         // temaBtn: 'tema-info'
     };
 
@@ -172,6 +175,7 @@
         const contenedorInterno = document.querySelector(".modal-contenido");
 
         const txtDesc2 = document.getElementById("mensajeDos");
+        const tiempoEspera = document.getElementById("tiempoEspera");
 
         description.innerText = variante.mensaje;
         titulo.innerText = variante.titulo;
@@ -215,6 +219,14 @@
         } else {
             txtDesc2.innerText = "";
             txtDesc2.style.display = "none"; // Lo ocultamos para que no ocupe espacio
+        }
+
+        if (variante.tiempo && variante.tiempo.trim() !== "") {
+            tiempoEspera.innerText = variante.tiempo;
+            tiempoEspera.style.display = "block"; // Lo mostramos
+        } else {
+            tiempoEspera.innerText = "";
+            tiempoEspera.style.display = "none"; // Lo ocultamos para que no ocupe espacio
         }
 
 
