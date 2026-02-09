@@ -27,7 +27,7 @@
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteCristiana)">critstina</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteJudia)">judia</button>
         <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDavid)">david</button>
-            <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDinero)">dinero</button>
+        <button class="btn btn-warning" onclick="cambiarBotonGenerico(varianteDinero)">dinero</button>
         <!-- <button class="btn btn-warning" onclick="levantarModal('warning_inactive')">Ver Advertencia</button>
         <button class="btn btn-danger" onclick="levantarModal('error_validation')">Ver Error</button>
         <button class="btn btn-success" onclick="levantarModal('success_check')">Ver Éxito 2</button> -->
@@ -35,7 +35,7 @@
 
         <div id="miOverlay" class="overlay" onclick="cerrarModal()">
             <div class="modal-contenido" onclick="event.stopPropagation()">
-                <span class="boton-cerrar" onclick="cerrarModal()">&times;</span>
+                <!-- <span class="boton-cerrar" onclick="cerrarModal()">&times;</span> -->
                 <div class="boton-cerrar bg-warning rounded-circle align-items-center justify-content-center"
                     onclick="cerrarModal()">
                     <i class="fa-solid fa-xmark fa-1x"></i>
@@ -45,27 +45,18 @@
                     <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-2x"></i>
                 </div>
                 <h3 id="titulo">titulo de davertencia</h3>
-                <!-- <h2>Título dentro del contenedor</h2> -->
-                <!-- <div id="formaBoton" class="bg-warning rounded-circle d-flex align-items-center justify-content-center"
-                    style="width: 100px; height: 100px;">
-                    <i id="iconoAdvertencia" class="fa-solid fa-circle-radiation fa-4x"></i>
-                </div> -->
-                <p id="mensajeDos">otro mensaje</p>
+                <p id="mensajeDos"></p>
 
                 <div id="fondoDescripcion" class=" fondo-descripcion p-2 text-center">
-                    <p id="descripcion" class="">Este es un párrafo de avertencia.</p>
+                    <p id="descripcion" class=""></p>
                 </div>
-                <br>
-                <button id="fondo-boton" class="fondo-boton btn rounded-pill">
-                    <p id="botonDescripcion" class="">Este es boton de avertencia.</p>
-                    <!-- adadadadada -->
-                    <!-- <p id="descBtn"> descripciond e boton</p> -->
-                    <!-- presiona el boton -->
+        
+                <button class="fondo-boton btn rounded-pill">
+                    <p id="botonDescripcion" class=""></p>
                 </button>
 
-                <!-- Botón redondeado tipo pastilla -->
-
             </div>
+
         </div>
 
     </div>
