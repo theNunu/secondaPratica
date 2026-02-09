@@ -106,7 +106,8 @@ position: absolute;
 
 .fondo-descripcion {
     background-color: #17a2b8;
-      border-radius: 15px; /* Valor aplicado a todas las esquinas */
+    border-radius: 15px; /* Valor aplicado a todas las esquinas */
+    width: 420px;
 }
 
 /* --- VARIANTES DE COLOR --- */
