@@ -65,3 +65,66 @@
   background-color: #ac9bed;
 
 }
+  /* LOS ICONOSSSS */
+        .icon-container {
+            display: flex;
+            gap: 20px;
+            padding: 40px;
+            background-color: #f5f5f5;
+            font-family: sans-serif;
+            align-items: center;
+        }
+
+        /* Base del círculo exterior (el resplandor) */
+        .status-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* El círculo central con la sombra */
+        .inner-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        /* 1. Alerta / Exclamación (Naranja) */
+        .warning { background-color: #fff9e6; }
+        .warning .inner-circle { background-color: #ffb822; }
+
+        /* 2. Check / Aprobado (Verde) */
+        .success { background-color: #e6f9ed; }
+        .success .inner-circle { background-color: #2ecc71; }
+
+        /* 3. Reloj / Pendiente (Azul) */
+        .pending { background-color: #eaf2ff; }
+        .pending .inner-circle { background-color: #448aff; }
+
+        /* 4. Documento (Rojo - Pequeño) */
+        .document { 
+            width: 30px; 
+            height: 30px; 
+            background-color: #fff0f0; 
+            border-radius: 4px;
+        }
+        .document i { color: #e74c3c; font-size: 16px; }
+
+        /* Texto de ejemplo */
+        .label {
+            color: #8d4925;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+   
