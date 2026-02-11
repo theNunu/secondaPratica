@@ -18,10 +18,12 @@
   /* align-items: center; */ /* Opcional: Centra horizontalmente */
   /* justify-content: center; */ /* Opcional: Centra verticalmente */
   background-color: #FFFFFF;
-  padding: 80px;
-  width: 650px;
+  padding: 25px;
+  width: 750px;
     align-items: center; /* 👈 esto centra todos los hijos */
       border-radius: 10px; /* Aplica 10px a todas las esquinas */
+      border: 3px solid #F3F4F6; /* Grosor, Estilo, Color */
+
 }
 
 .hijo {
@@ -38,7 +40,28 @@
 }
 
 .description {
+    width: 500px;
+    background-color: aqua;
+      /* padding: 80px; */
      font-size: 20px; /* Tamaño grande */
      color: #78350F;
+
+}
+.words-strong {
+          color: #5e2606; /* Color oscuro */
+           font-size: 22px; /* Tamaño grande */
+    
+
+}
+
+.pantalla-principal{
+      display: flex;
+        padding: 80px;
+  flex-direction: column; /* Apila verticalmente */
+  gap: 50px; /* Espacio entre elementos hijos */
+      align-items: center; /* 👈 esto centra todos los hijos */
+  /* align-items: center; */ /* Opcional: Centra horizontalmente */
+  /* justify-content: center; */ /* Opcional: Centra verticalmente */
+  background-color: #ac9bed;
 
 }
