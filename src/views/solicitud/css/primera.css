@@ -1,0 +1,44 @@
+.title-request {
+       font-size: 42px; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    color: #92400E; /* Color oscuro */
+    font-family: Arial, sans-serif; /* Tipografía */
+}
+.subtitle-title-request {
+       font-size: 28px; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    color: #ca0606; /* Color oscuro */
+    font-family: Arial, sans-serif; /* Tipografía */
+}
+
+.request-tarjet {
+  display: flex;
+  flex-direction: column; /* Apila verticalmente */
+  gap: 15px; /* Espacio entre elementos hijos */
+  /* align-items: center; */ /* Opcional: Centra horizontalmente */
+  /* justify-content: center; */ /* Opcional: Centra verticalmente */
+  background-color: #FFFFFF;
+  padding: 80px;
+  width: 650px;
+    align-items: center; /* 👈 esto centra todos los hijos */
+      border-radius: 10px; /* Aplica 10px a todas las esquinas */
+}
+
+.hijo {
+    background-color: rgb(213, 166, 105);
+}
+
+.background-icon {
+  width: 110px;
+  height: 110px;
+  padding: 40px;
+    background-color: #FEF3C7; /* Color de fondo */
+  border-radius: 50%;        /* ¡Clave para hacer el círculo! */
+  color:#FBBF24;
+}
+
+.description {
+     font-size: 20px; /* Tamaño grande */
+     color: #78350F;
+
+}
