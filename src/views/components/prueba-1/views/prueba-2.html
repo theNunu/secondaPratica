@@ -1,0 +1,82 @@
+<head>
+    <meta charset="UTF-8" />
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/views/components/prueba-1/css/prueba-2.css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div id="stepper-component" class="container mt-5" style="max-width: 400px;">
+
+        <div class="d-flex justify-content-between mb-3 position-relative">
+            <div class="step-dot active" data-step="1"></div>
+            <div class="step-dot active" data-step="2"></div>
+            <div class="step-dot current" data-step="3"></div>
+            <div class="step-dot" data-step="4"></div>
+            <div class="step-dot" data-step="5"></div>
+        </div>
+
+        <div class="progress" style="height: 4px;">
+            <div id="progress-bar" class="progress-bar bg-danger" role="progressbar" style="width: 50%;"></div>
+        </div>
+
+        <p class="text-center mt-2 fw-bold text-danger" id="step-text">Paso 3 de 5</p>
+    </div>
+    <script>
+        function updateStepper(step) {
+            const totalSteps = 5;
+            const dots = document.querySelectorAll('.step-dot');
+            const progressBar = document.getElementById('progress-bar');
+            const stepText = document.getElementById('step-text');
+
+            dots.forEach((dot, index) => {
+                const stepNum = index + 1;
+
+                // Limpiamos clases previas
+                dot.classList.remove('active', 'current');
+
+                if (stepNum < step) {
+                    dot.classList.add('active'); // Pasos completados
+                } else if (stepNum === step) {
+                    dot.classList.add('current'); // Paso donde está el usuario
+                }
+            });
+
+            // Cálculo del porcentaje para la barra (ej: paso 3 de 5 es 50% de recorrido entre puntos)
+            const progressPercentage = ((step - 1) / (totalSteps - 1)) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+
+            // Actualizar el texto inferior
+            stepText.innerText = `Paso ${step} de ${totalSteps}`;
+        }
+
+        // Seleccionamos todos los círculos
+        const dots = document.querySelectorAll('.step-dot');
+
+        // Añadimos el evento de clic a cada uno
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                // Obtenemos el número del paso desde el atributo data-step
+                const targetStep = parseInt(dot.getAttribute('data-step'));
+
+                // Llamamos a la función que creamos antes
+                updateStepper(targetStep);
+            });
+        });
+
+        // 🚀 INICIALIZACIÓN: Esto hace que empiece en el paso 1 por defecto
+        window.onload = () => {
+            updateStepper(1);
+        };
+    </script>
+</body>
