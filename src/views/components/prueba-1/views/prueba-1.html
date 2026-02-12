@@ -1,0 +1,222 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>DevSite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/src/views/components/prueba-1/css/prueba-1.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <mi-boton>Soy un mi-boton</mi-boton>
+  <mi-boton-2>Soy un mi-boton-2</mi-boton-2>
+
+  <hola-mundo></hola-mundo>
+  <hr />
+
+  <saludo-usuario nombre="Carlos"></saludo-usuario>
+  <saludo-usuario nombre=""></saludo-usuario>
+
+  <hr />
+  <hr />
+  <usuario-card nombre="Ana García" profesion="Desarrolladora Web" foto="/src/images/diddy.jpg">
+  </usuario-card>
+
+  <usuario-card nombre="" profesion="" foto=""> </usuario-card>
+
+  <div class="text-green p-2" style="background-color: red; width: 40px">
+    aa
+  </div>
+
+  <div class="contenedor-padre">
+    <div class="bg-danger p-2">aa</div>
+    <div class="bg-success text-white p-2">aa</div>
+    <div class="bg-info p-2">aa</div>
+  </div>
+  <hr />
+
+  <div class="contenedor-padre">
+    <usuario-card nombre="Ana García" profesion="Desarrolladora Web" foto="/src/images/charlie-kirk.jpg">
+    </usuario-card>
+
+    <usuario-card nombre="" profesion="" foto=""> </usuario-card>
+    <usuario-card nombre="diddy" profesion="productor musical" foto="/src/images/diddy.jpg"> </usuario-card>
+    <usuario-card nombre="nethanyaju" profesion="primer ministro" foto="/src/images/israel.jpg"> </usuario-card>
+  </div>
+
+  <boton-like></boton-like>
+  <boton-like></boton-like>
+  <hr>
+  <hr>
+  <h2>un componente</h2>
+  <script>
+    class MiBoton extends HTMLElement {
+      constructor() {
+        super();
+        this.addEventListener("click", function (e) {
+          alert("hola");
+        });
+      }
+    }
+    customElements.define("mi-boton", MiBoton);
+
+    customElements.define(
+      "mi-boton-2",
+      class extends HTMLElement {
+        constructor() {
+          super();
+          this.addEventListener("click", function (e) {
+            alert("hola soy boton 2");
+          });
+        }
+      },
+    );
+    //1 prrimera funcion
+    // 1. Definimos la lógica en una clase
+    class MiHolaMundo extends HTMLElement {
+      constructor() {
+        super(); // Siempre llamamos a super() primero
+        this.textContent = "¡Hola Mundo desde mi componente! 🌍";
+      }
+    }
+
+    // 2. Registramos el componente con un nombre (debe tener un guion '-')
+    customElements.define("hola-mundo", MiHolaMundo);
+
+    //2 EJEMPLO
+    class SaludoUsuario extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      // Se ejecuta cuando el elemento se inserta en el DOM
+      connectedCallback() {
+        // Leemos el atributo "nombre" de la etiqueta
+        const nombre = this.getAttribute("nombre") || "Desconocido";
+
+        this.innerHTML = `
+      <div style="border: 2px solid #007bff; padding: 10px; border-radius: 8px;">
+        <p>¡Hola, <strong>${nombre}</strong>! Bienvenido a tus componentes.</p>
+      </div>
+    `;
+      }
+    }
+
+    customElements.define("saludo-usuario", SaludoUsuario);
+
+    //  ****************   CREACION DE UNA TARJETA DE USUARIO CON BOOTSTRAP
+
+    class UsuarioCard extends HTMLElement {
+      constructor() {
+        super();
+        // 1. Creamos la "burbuja" (Shadow DOM)
+        this.attachShadow({ mode: "open" });
+      }
+
+      connectedCallback() {
+        // 2. Obtenemos los datos de los atributos
+        const nombre = this.getAttribute("nombre") || "Nombre no disponible";
+        const foto =
+          this.getAttribute("foto") ||
+          "/src/images/jake.jpg";
+        const profesion =
+          this.getAttribute("profesion") || "Profesión no definida";
+
+        // 3. Definimos el contenido (incluyendo el CSS de Bootstrap para esa burbuja)
+        this.shadowRoot.innerHTML = `
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      
+      <style>
+        /* Forzamos el tamaño de la imagen */
+        .card-img-custom {
+          width: 100%;
+          height: 200px; /* Altura fija obligatoria */
+          object-fit: cover; /* Mantiene la proporción sin estirarse */
+          border-bottom: 1px solid #ddd;
+        }
+        
+        /* Contenedor opcional para que todas las cards midan lo mismo */
+        .card {
+          height: 100%; 
+          min-height: 400px;
+        }
+      </style>
+
+      <div class="card" style="width: 18rem; margin: 10px;">
+        <img src="${foto}" class="card-img-custom" alt="${nombre}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${nombre}</h5>
+          <p class="card-text text-muted">${profesion}</p>
+          <a href="#" class="btn btn-primary mt-auto">Ver Perfil</a>
+        </div>
+      </div>
+    `;
+      }
+    }
+
+    customElements.define("usuario-card", UsuarioCard);
+
+    //  ****************   CREACION DE ME GUSTA
+
+    class BotonLike extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        // Estado inicial
+        this.contador = 0;
+      }
+
+      // Se ejecuta al insertarse en el HTML
+      connectedCallback() {
+        this.render();
+      }
+
+      // Función para aumentar el contador
+      incrementar() {
+        this.contador++;
+        this.render(); // Volvemos a dibujar para mostrar el cambio
+      }
+
+      // Aquí metemos todo el HTML y CSS
+      render() {
+        this.shadowRoot.innerHTML = `
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+        .like-container {
+          display: inline-block;
+          cursor: pointer;
+          transition: transform 0.2s;
+        }
+        .like-container:active {
+          transform: scale(1.2);
+        }
+        .corazon {
+          color: ${this.contador > 0 ? '#e25555' : '#6c757d'};
+          font-size: 1.5rem;
+        }
+      </style>
+
+      <div class="like-container border p-2 rounded d-inline-flex align-items-center bg-light">
+        <span class="corazon me-2">♥</span>
+        <span class="badge bg-primary">${this.contador}</span>
+        <button class="btn btn-sm btn-outline-secondary ms-3">¡Me gusta!</button>
+      </div>
+    `;
+
+        // ⚠️ IMPORTANTE: Agregamos el evento después de renderizar
+        this.shadowRoot.querySelector('.like-container').addEventListener('click', () => {
+          this.incrementar();
+        });
+      }
+    }
+
+    customElements.define('boton-like', BotonLike);
+  </script>
+</body>

@@ -1,0 +1,14 @@
+mi-boton, mi-boton-2 {
+  padding: 10px;
+  border: 5px solid green;
+}
+
+.contenedor-padre {
+  display: flex; /* Activa Flexbox */
+  flex-direction: row; /* Alinea hijos horizontalmente (opcional, es por defecto) */
+  justify-content: center; /* Centra los hijos horizontalmente. Otros: space-between, flex-start, flex-end */
+  align-items: center; /* Centra los hijos verticalmente dentro del contenedor */
+    gap: 15px; /* Espacio entre elementos hijos */
+    background-color: rgb(175, 215, 249);
+    /* width:300px; */
+}
