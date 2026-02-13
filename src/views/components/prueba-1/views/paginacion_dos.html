@@ -48,14 +48,23 @@
                 const btnAnterior = this.shadowRoot.querySelector('#btn-bajar');
                 const valorDisplay = this.shadowRoot.querySelector('#valor');
 
+                // valorDisplay = 1;
+
                 // Escuchamos el evento click
                 btnSiguiente.addEventListener('click', () => {
                     this.contador++;
+                    if(this.contador > 5){
+                        this.contador = 5; // Limitar a 5
+                    }
                     valorDisplay.innerText = this.contador;
                 });
 
                 btnAnterior.addEventListener('click', () => {
                     this.contador--;
+
+                      if(this.contador < 1){
+                        this.contador = 1; // Limitar a 1
+                    }
                     valorDisplay.innerText = this.contador;
                 });
             }
@@ -75,7 +84,7 @@
             <div class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
         </div>
 
-        <h2 class="text-danger">Paso <span id="valor">${this.contador}</span> de 5</h2>
+        <h2 class="text-danger">Paso <span id="valor">${this.contador = 1}</span> de 5</h2>
 
         <button id="btn-bajar" class="btn btn-outline-danger">Disminuir</button>
         <button id="btn-subir" class="btn btn-danger">Aumentar</button>
