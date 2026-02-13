@@ -1,0 +1,43 @@
+.step-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #dee2e6;
+    /* Gris claro */
+    background-color: white;
+    z-index: 2;
+}
+
+/* Paso completado: Rojo sólido */
+.step-dot.active {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Paso actual: Círculo con borde rojo y punto centro (doble círculo) */
+.step-dot.current {
+    border: 2px solid #dc3545;
+    background-color: white;
+    position: relative;
+}
+
+.step-dot.current::after {
+    content: "";
+    width: 13px;
+    height: 13px;
+    background-color: #dc3545;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.contenedor {
+    
+  display: flex;                /* Activa Flexbox */
+  justify-content: space-between; /* Espacio uniforme entre elementos */
+    width: 500px;                 /* Opcional: ocupa todo el ancho */
+}

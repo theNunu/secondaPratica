@@ -1,0 +1,88 @@
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/views/components/prueba-1/css/paginacion_dos.css">
+    <script src="script.js"></script>
+
+</head>
+<style>
+    .item {
+        display: none;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 5px;
+    }
+
+    .active {
+        display: block;
+    }
+
+    #paginacion {
+        margin-top: 15px;
+    }
+
+    button {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="contenedor-items">
+        <!-- Generar 15 elementos de ejemplo -->
+        <script>
+            for (let i = 1; i <= 15; i++) {
+                document.write(`<div class="item">Elemento ${i}</div>`);
+            }
+        </script>
+    </div>
+
+    <div id="paginacion"></div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        const itemsPorPagina = 5;
+        let paginaActual = 1;
+        const totalPaginas = Math.ceil(items.length / itemsPorPagina);
+
+        function mostrarPagina(pagina) {
+            // Ocultar todos los elementos
+            items.forEach(item => item.classList.remove('active'));
+
+            // Calcular índices
+            let inicio = (pagina - 1) * itemsPorPagina;
+            let fin = inicio + itemsPorPagina;
+
+            // Mostrar elementos de la página actual
+            for (let i = inicio; i < fin && i < items.length; i++) {
+                items[i].classList.add('active');
+            }
+            paginaActual = pagina;
+            actualizarBotones();
+        }
+
+        function actualizarBotones() {
+            const paginacionDiv = document.getElementById('paginacion');
+            paginacionDiv.innerHTML = '';
+            for (let i = 1; i <= totalPaginas; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = i;
+                btn.onclick = () => mostrarPagina(i);
+                if (i === paginaActual) btn.style.fontWeight = 'bold';
+                paginacionDiv.appendChild(btn);
+            }
+        }
+
+        // Inicializar
+        mostrarPagina(1);
+    </script>
+</body>

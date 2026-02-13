@@ -1,0 +1,93 @@
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/views/components/prueba-1/css/paginacion_dos.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <pasos-avanzar></pasos-avanzar>
+    <!-- <paso-avanzar></paso-avanzar> -->
+
+
+    <!-- <div id="contenedor-items"></div>
+    <div id="paginacion" class="pagination">
+        <button id="btn-anterior">Anterior</button>
+        <span id="info-pagina"></span>
+        <button id="btn-siguiente">Siguiente</button>
+    </div> -->
+
+    <script>
+
+        class PasosAvanzar extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: "open" });
+                // Inicializamos el contador con el atributo, o 0 si no existe
+                this.contador = parseInt(this.getAttribute("primerPaso")) || 0;
+            }
+
+            connectedCallback() {
+                this.render();
+                this.setupEvents();
+            }
+
+            setupEvents() {
+                // Seleccionamos los botones dentro del Shadow DOM
+                const btnSiguiente = this.shadowRoot.querySelector('#btn-subir');
+                const btnAnterior = this.shadowRoot.querySelector('#btn-bajar');
+                const valorDisplay = this.shadowRoot.querySelector('#valor');
+
+                // Escuchamos el evento click
+                btnSiguiente.addEventListener('click', () => {
+                    this.contador++;
+                    valorDisplay.innerText = this.contador;
+                });
+
+                btnAnterior.addEventListener('click', () => {
+                    this.contador--;
+                    valorDisplay.innerText = this.contador;
+                });
+            }
+
+            render() {
+                this.shadowRoot.innerHTML = `
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .contenedor { display: flex; justify-content: space-between; width: 500px; }
+        </style>
+        
+        <div class="contenedor mt-3">
+            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
+            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
+            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
+            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
+            <div class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
+        </div>
+
+        <h2 class="text-danger">Paso <span id="valor">${this.contador}</span> de 5</h2>
+
+        <button id="btn-bajar" class="btn btn-outline-danger">Disminuir</button>
+        <button id="btn-subir" class="btn btn-danger">Aumentar</button>
+        `;
+            }
+        }
+
+        customElements.define("pasos-avanzar", PasosAvanzar);
+
+    </script>
+
+
+</body>
+
+</html>
