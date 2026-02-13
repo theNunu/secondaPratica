@@ -16,98 +16,88 @@
 </head>
 
 <body>
-    <pasos-avanzar></pasos-avanzar>
-    <!-- <paso-avanzar></paso-avanzar> -->
-
-
-    <!-- <div id="contenedor-items"></div>
-    <div id="paginacion" class="pagination">
-        <button id="btn-anterior">Anterior</button>
-        <span id="info-pagina"></span>
-        <button id="btn-siguiente">Siguiente</button>
-    </div> -->
+    <pasos-avanzar primerPaso="1"></pasos-avanzar>
 
     <script>
-
         class PasosAvanzar extends HTMLElement {
             constructor() {
                 super();
                 this.attachShadow({ mode: "open" });
-                // Inicializamos el contador con el atributo, o 0 si no existe
-                this.contador = parseInt(this.getAttribute("primerPaso")) || 0;
+                // Paso inicial (por defecto 1)
+                this.contador = parseInt(this.getAttribute("primerPaso")) || 1;
             }
 
             connectedCallback() {
+                this.actualizarVista();
+            }
+
+            // Esta función centraliza el "limpiar y pintar" 🔄
+            actualizarVista() {
                 this.render();
                 this.setupEvents();
             }
 
             setupEvents() {
-                // Seleccionamos los botones dentro del Shadow DOM
                 const btnSiguiente = this.shadowRoot.querySelector('#btn-subir');
                 const btnAnterior = this.shadowRoot.querySelector('#btn-bajar');
-                const valorDisplay = this.shadowRoot.querySelector('#valor');
 
-                // valorDisplay = 1;
-
-                // Escuchamos el evento click
                 btnSiguiente.addEventListener('click', () => {
-                    this.contador++;
-                    if(this.contador > 5){
-                        this.contador = 5; // Limitar a 5
+                    if (this.contador < 5) {
+                        this.contador++;
+                        this.actualizarVista(); // Re-renderizamos al cambiar el dato
                     }
-                    valorDisplay.innerText = this.contador;
                 });
 
                 btnAnterior.addEventListener('click', () => {
-                    this.contador--;
-
-                      if(this.contador < 1){
-                        this.contador = 1; // Limitar a 1
+                    if (this.contador > 1) {
+                        this.contador--;
+                        this.actualizarVista(); // Re-renderizamos al cambiar el dato
                     }
-                    valorDisplay.innerText = this.contador;
                 });
             }
 
             render() {
+                // 1. Generamos las 5 barritas dinámicamente 📏
+                let barrasHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    // Si el índice es menor o igual al contador, es roja. Si no, blanca.
+                    const claseColor = (i <= this.contador) ? 'bg-danger' : 'bg-white border border-danger';
+                    barrasHTML += `<div class="rounded ${claseColor}" style="width: 60px; height: 10px;"></div>`;
+                }
+
+                // 2. Inyectamos el HTML al Shadow DOM
                 this.shadowRoot.innerHTML = `
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .contenedor { display: flex; justify-content: space-between; width: 500px; }
-        </style>
-        
-        <div class="contenedor mt-3">
-            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
-            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
-            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
-            <div class="rounded bg-danger" style="width: 80px; height:10px;"></div>
-            <div class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
-        </div>
-        <hr>
-        <hr>
-          <div class="contenedor mt-3">
-            <div id="btn-subir" class="rounded bg-danger" style="width: 80px; height:10px;"></div>
-            <div id="btn-bajar" class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
-            <div id="btn-bajar" class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
-            <div id="btn-bajar" class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
-            <div id="btn-bajar" class="rounded bg-white border border-danger" style="width: 80px; height:10px;"></div>
-        </div>
-       
-        
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    .contenedor-barras { 
+                        display: flex; 
+                        justify-content: space-between; 
+                        width: 350px; 
+                        margin: 20px 0; 
+                    }
+                    .info-paso { font-weight: bold; margin-bottom: 15px; }
+                </style>
 
-        <h2 class="text-danger">Paso <span id="valor">${this.contador = 1}</span> de 5</h2>
+                <div class="p-4">
+                    <div class="contenedor-barras">
+                        ${barrasHTML}
+                    </div>
 
-        <button id="btn-bajar" class="btn btn-outline-danger">Disminuir</button>
-        <button id="btn-subir" class="btn btn-danger">Aumentar</button>
-        `;
+                    <div class="info-paso text-danger text-center" style="width: 350px;">
+                        Paso ${this.contador} de 5
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button id="btn-bajar" class="btn btn-outline-danger">Anterior</button>
+                        <button id="btn-subir" class="btn btn-danger">Siguiente</button>
+                    </div>
+                </div>
+                `;
             }
         }
 
         customElements.define("pasos-avanzar", PasosAvanzar);
-
     </script>
-
-
 </body>
 
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Paginación por Barritas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <pasos-avanzar primerPaso="1"></pasos-avanzar>
+
+    <script>
+        class PasosAvanzar extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: "open" });
+                // Empezamos en el paso 1 por defecto
+                this.contador = parseInt(this.getAttribute("primerPaso")) || 1;
+            }
+
+            connectedCallback() {
+                this.actualizarVista();
+            }
+
+            // Función para refrescar el componente 🔄
+            actualizarVista() {
+                this.render();
+                this.setupEvents();
+            }
+
+            setupEvents() {
+                // Seleccionamos todas las barritas
+                const barritas = this.shadowRoot.querySelectorAll('.barra-paso');
+                
+                // A cada barrita le asignamos la función de ir a ese paso
+                barritas.forEach(barra => {
+                    barra.addEventListener('click', () => {
+                        // Leemos el número de paso de la barrita que tocaron
+                        this.contador = parseInt(barra.getAttribute('data-paso'));
+                        this.actualizarVista();
+                    });
+                });
+            }
+
+            render() {
+                // Generamos las 5 barritas dinámicamente 📏
+                let barrasHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    const esActivo = i <= this.contador;
+                    const claseColor = esActivo ? 'bg-danger' : 'bg-white border border-danger';
+                    
+                    barrasHTML += `
+                        <div 
+                            class="barra-paso rounded ${claseColor}" 
+                            data-paso="${i}" 
+                            style="width: 60px; height: 10px; cursor: pointer; transition: all 0.3s;">
+                        </div>`;
+                }
+
+                this.shadowRoot.innerHTML = `
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    .contenedor-barras { 
+                        display: flex; 
+                        justify-content: space-between; 
+                        width: 350px; 
+                        margin: 20px 0; 
+                    }
+                    /* Efecto visual al pasar el mouse por las barritas */
+                    .barra-paso:hover {
+                        transform: scaleY(1.3);
+                        filter: brightness(0.9);
+                    }
+                </style>
+
+                <div class="p-4" style="font-family: sans-serif;">
+                    <div class="contenedor-barras">
+                        ${barrasHTML}
+                    </div>
+
+                    <div class="text-danger text-center" style="width: 350px; font-weight: bold;">
+                        Paso ${this.contador} de 5
+                    </div>
+                </div>
+                `;
+            }
+        }
+
+        customElements.define("pasos-avanzar", PasosAvanzar);
+    </script>
+</body>
+</html>
