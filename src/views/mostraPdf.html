@@ -20,22 +20,33 @@
     este el fondo
     <!--  overflow: hidden; width: 560px; para hacer estrecho y ocultar el scroll  -->
     <h1>qqqq</h1>
-    <div
-        style=" display: flex;  position: fixed;  top: 0; left: 0;   width: 100%;   height: 100vh; background-color: rgba(0, 0, 0, 0.7);  z-index: 1000;   align-items: center;  justify-content: center; ">
-        <div style="background-color: aqua; padding: 25px ;border-radius: 8px">
-            <div
-                style="border-radius: 8px;    overflow: hidden; width: 560px; height: 500px; display: flex; flex-direction: column; align-items: center; ">
-                <div style="width: 600px; height: 550px; overflow: hidden;">
-                    <iframe src="../../src/pdfs/El-Patito-Feo-1.pdf#view=FitH&toolbar=0" scrolling="no"
-                        style=" width: 600px; height: 600px;"></iframe>
-                    <!-- FitH&toolbar=0" PARTE CLAVE PARA QUITAR INTERFAZ DE LECTOR-->
+ <div style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.7); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background-color: aqua; padding: 25px; border-radius: 8px; display: flex; flex-direction: column; align-items: center;">
+        
+        <!-- CONTENEDOR RELATIVO (Fundamental para posicionar el escudo) -->
+        <div style="position: relative; border-radius: 8px; overflow: hidden; width: 560px; height: 500px;">
+            
+            <!-- EL ESCUDO: Bloquea clics y scroll del ratón -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;"></div>
 
-                </div>
-
+            <!-- EL PDF: Se mantiene detrás del escudo -->
+            <div style="width: 600px; height: 600px; margin-left: -20px; margin-top: -10px;">
+                <iframe src="../../src/pdfs/El-Patito-Feo-1.pdf#view=FitH&toolbar=0&navpanes=0&scrollbar=0" 
+                        scrolling="no" 
+                        style="width: 100%; height: 100%; border: none;">
+                </iframe>
             </div>
         </div>
 
+        <button class="w-100 p-2 mt-4 btn btn-danger text-white rounded-3">
+            cerrar documento
+        </button>
+<!-- 
+        <button type="button" class="btn btn-danger">Botón Rojo</button> -->
+
     </div>
+</div>
+
 
     <br>
 
