@@ -16,29 +16,30 @@
 </head>
 
 <body>
-
+    <h2>puta</h2>
     este el fondo
-    <!-- /  justify-content: center; /* Centrado horizontal */
-  align-items: center;     /* Centrado vertical */
-  height: 100vh;   -->
+    <!--  overflow: hidden; width: 560px; para hacer estrecho y ocultar el scroll  -->
     <h1>qqqq</h1>
     <div style=" display: flex;  position: fixed;  top: 0; left: 0;   width: 100%;   height: 100vh; background-color: rgba(0, 0, 0, 0.7);  z-index: 1000;   align-items: center;  justify-content: center; ">
-        <div class="custom-scroll"style="background: white; padding: 10px; border-radius: 8px; ">
-            <iframe src="../../src/pdfs/El-Patito-Feo-1.pdf#view=FitH&toolbar=0"  style=" width: 600px; height: 600px;"></iframe> <!-- FitH&toolbar=0" PARTE CLAVE PARA QUITAR INTERFAZ DE LECTOR-->
-            
+        <div style="background: rgb(179, 36, 36); padding: 10px; border-radius: 8px;  overflow: hidden; width: 560px; height: 600px; display: flex; flex-direction: column; align-items: center; ">
+            <div style="width: 600px; height: 550px; overflow: hidden;">
+                  <iframe src="../../src/pdfs/El-Patito-Feo-1.pdf#view=FitH&toolbar=0" scrolling="no"
+                style=" width: 600px; height: 600px;"></iframe>
+            <!-- FitH&toolbar=0" PARTE CLAVE PARA QUITAR INTERFAZ DE LECTOR-->
+
+            </div>
+          
+
 
         </div>
-        <br>
-        <button>
-            presiona el botonn
-        </button>
-        
+
+
 
     </div>
 
     <br>
 
-    
+
 
     <!-- <div
         style="display: flex; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; align-items: center; justify-content: center;">
@@ -53,12 +54,12 @@
     </div> -->
 
     <!-- <iframe src="../../src/pdfs/100origami.pdf" width="100%" height="600px"></iframe> -->
-     <style>
+    <style>
         /* APLICANDO EL COLOR AL CONTENEDOR QUE TIENE LA CLASE .custom-scroll */
-        
+
         /* 1. El ancho de la barra */
         .custom-scroll::-webkit-scrollbar {
-            width: 14px; 
+            width: 14px;
         }
 
         /* 2. El fondo de la barra (el canal) */
@@ -69,15 +70,17 @@
 
         /* 3. La parte que se mueve (el "pulgar") */
         .custom-scroll::-webkit-scrollbar-thumb {
-            background: #ff6b6b; /* Color rojo coral */
+            background: #ff6b6b;
+            /* Color rojo coral */
             border-radius: 10px;
-            border: 3px solid white; /* Crea un efecto de separación */
+            border: 3px solid white;
+            /* Crea un efecto de separación */
         }
 
         /* 4. Color cuando pasas el mouse por encima */
         .custom-scroll::-webkit-scrollbar-thumb:hover {
             background: #ee5253;
         }
-</style>
+    </style>
 
 </body>
